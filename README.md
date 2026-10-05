@@ -38,4 +38,6 @@ APEX-256 is engineered specifically for constrained IoT and embedded hardware, d
 | **Side-Channel Posture** | **Constant-Time** | Zero data-dependent branches, zero table lookups in the keystream path. Branchless initialization guards. |
 
 ## Request Access
-To view the full 3,788-line BigCrush logs, the 32TB PractRand output, or to download the cipher for integration into your hardware, please register for an evaluator account at **[apex256.io](https://apex256.io)**.
+To view the full 3,788-line BigCrush logs, the 32TB PractRand output, or to download the cipher for integration into your hardware, you must undergo commercial due diligence and sign the Apex Research Labs Evaluation NDA. 
+
+Please contact **info@apex256.com** to initiate the evaluation process and request an invitation to the [APEX Developer Portal](https://apex256.io).
