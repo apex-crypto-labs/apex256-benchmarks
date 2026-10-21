@@ -1,4 +1,4 @@
-# APEX-256 Validation & Benchmark Reports (v2.1.4.1)
+# APEX-256 Validation & Benchmark Reports (v2.1.6.4)
 
 This repository contains the high-level validation results, formal SMT verification summaries, side-channel leakage evaluations, and hardware SWaP-C (Size, Weight, Power, and Cost) metrics for **APEX-256**, a proprietary embedded stream cipher and cryptographic primitive suite developed by **Apex Research Labs, LLC** (Inventor: Diab Anthony Sheteyh).
 
@@ -22,7 +22,7 @@ APEX-256 has passed the industry's most demanding empirical statistical randomne
 
 ---
 
-## 2. Formal SMT Verification, Wave-1 & Wave-2 Cryptanalysis (v2.1.4.1)
+## 2. Formal SMT Verification, Wave-1 & Wave-2 Cryptanalysis (v2.1.6.4)
 
 Apex Research Labs utilizes formal bitvector SMT solvers (**Microsoft Z3**), CASCADA Rotational-XOR (`RX`) trail search, CLAASP residual neural classifiers, CROCS `BoolTest` polynomial distinguishers, fast Walsh-Hadamard spectral transforms, and `x86_64` symbolic binary taint analysis to verify the 256-bit state manifold:
 
@@ -41,7 +41,7 @@ Apex Research Labs utilizes formal bitvector SMT solvers (**Microsoft Z3**), CAS
 
 ---
 
-## 3. Companion Primitive Cryptanalysis Suite (v2.1.4.1)
+## 3. Companion Primitive Cryptanalysis Suite (v2.1.6.4)
 
 All companion primitives sharing the 256-bit coupled Rate-Capacity sponge (`64-bit` rate + `192-bit` hidden capacity) are continuously verified against the Wave-1 and Wave-2 adversarial cryptanalysis harnesses:
 
