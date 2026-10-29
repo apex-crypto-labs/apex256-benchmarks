@@ -1,6 +1,6 @@
-# APEX-256 Validation & Benchmark Reports (v2.2.8.0)
+# APEX-256 Validation & Benchmark Reports (v2.2.8.2)
 
-This repository contains the high-level validation results, 16-wave cryptanalytic audit summaries, 38-tool external formal verification results, side-channel leakage evaluations, and hardware SWaP-C (Size, Weight, Power, and Cost) metrics for **APEX-256** (`v2.2.8.0`), a proprietary embedded stream cipher and cryptographic primitive suite developed by **Apex Research Labs, LLC** (Inventor: Diab Anthony Sheteyh).
+This repository contains the high-level validation results, 16-wave cryptanalytic audit summaries, 38-tool external formal verification results, side-channel leakage evaluations, and hardware SWaP-C (Size, Weight, Power, and Cost) metrics for **APEX-256** (`v2.2.8.2`), a proprietary embedded stream cipher and cryptographic primitive suite developed by **Apex Research Labs, LLC** (Inventor: Diab Anthony Sheteyh).
 
 > **Note:** APEX-256 is commercial intellectual property protected by pending U.S. and International Patent Applications. The reference engine (`apex256_nano.h`), verification harnesses, and authoritative Known Answer Tests (KATs) are distributed exclusively via the [APEX Developer Portal (apex256.io)](https://apex256.io) under an executed Evaluation NDA with **3-Layer Zero-Callback Fingerprinting (`3LZCF v3.1`)**.
 >
@@ -22,9 +22,9 @@ APEX-256 has passed the industry's most demanding empirical statistical randomne
 
 ---
 
-## 2. Stage 1 (Wave 15) & Stage 2 (Wave 16) Architectural Capabilities (v2.2.8.0)
+## 2. Stage 1 (Wave 15) & Stage 2 (Wave 16) Architectural Capabilities (v2.2.8.2)
 
-The `v2.2.8.0` architecture integrates six major security, side-channel, and throughput milestones within the unchanged `40-byte` self-contained zero-allocation `Apex256Nano` context (`32-byte` / `256-bit` four-register core manifold and 8 bytes of companion control metadata; `0 bytes` heap, `0 bytes` static `.bss`/`.tbss`/`.data`):
+The `v2.2.8.2` architecture integrates six major security, side-channel, and throughput milestones within the unchanged `40-byte` self-contained zero-allocation `Apex256Nano` context (`32-byte` / `256-bit` four-register core manifold and 8 bytes of companion control metadata; `0 bytes` heap, `0 bytes` static `.bss`/`.tbss`/`.data`):
 
 * **Ephemeral Hardware Multiplier Masking (Wave 15):** Bit-exact side-channel operand blinding across the 64-bit modular multiplier datapath (`CPA |r| = 0.0024`, Welch `|t| = 0.74 < 4.50`, `100%` wire-compatible with standard KATs).
 * **Extended 256-Bit Nonce (`X256`, Wave 15):** `init_x256`, `init_stealth_x256`, `init_wide_x256`, and `apex_aead_encrypt_x256` / `decrypt_x256` expanding random-nonce birthday safety from `2^32` to `2^128` messages with zero added RAM.
@@ -35,7 +35,7 @@ The `v2.2.8.0` architecture integrates six major security, side-channel, and thr
 
 ---
 
-## 3. Waves 1 - 16 Cryptanalysis & 38-Tool Formal Verification Battery (v2.2.8.0)
+## 3. Waves 1 - 16 Cryptanalysis & 38-Tool Formal Verification Battery (v2.2.8.2)
 
 Apex Research Labs utilizes 38 independent formal verification, SMT/SAT/MILP solving, interactive theorem proving, side-channel leakage, and hardware RTL synthesis engines to verify the 256-bit state manifold:
 
@@ -54,7 +54,7 @@ Apex Research Labs utilizes 38 independent formal verification, SMT/SAT/MILP sol
 
 ---
 
-## 4. Companion Primitive Cryptanalysis Suite (v2.2.8.0)
+## 4. Companion Primitive Cryptanalysis Suite (v2.2.8.2)
 
 All companion primitives operating across both the classic compatible modes and the `F256` / `W64` full 256-bit state modes are continuously verified against the 16-wave adversarial cryptanalysis harnesses:
 
