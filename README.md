@@ -26,25 +26,25 @@ APEX-256 has passed the industry's most demanding empirical statistical randomne
 
 The `v2.2.8.4` architecture integrates six major security, side-channel, and throughput milestones within the unchanged `40-byte` self-contained zero-allocation `Apex256Nano` context (`0 bytes` heap, `0 bytes` static `.bss`/`.tbss`/`.data`):
 
-* **Ephemeral Hardware Multiplier Masking (Wave 15):** Bit-exact side-channel operand blinding across the 64-bit modular multiplier datapath (`CPA |r| = 0.0024`, Welch `|t| = 0.74 < 4.50`, `100%` wire-compatible with standard KATs).
+* **Hardware Side-Channel Hardening (Wave 15):** Bit-exact hardware side-channel hardening across the arithmetic datapath (`CPA |r| = 0.0024`, Welch `|t| = 0.74 < 4.50`, `100%` wire-compatible with standard KATs).
 * **Extended 256-Bit Nonce (`X256`, Wave 15):** `init_x256`, `init_stealth_x256`, `init_wide_x256`, and `apex_aead_encrypt_x256` / `decrypt_x256` expanding random-nonce birthday safety from `2^32` to `2^128` messages with zero added RAM.
 * **Forward-Secrecy Keyframe Ratcheting (Wave 15):** `process_payload_ratcheted` and `ratchet_stream` executing an irreversible one-way state transition every 256 bytes (`100%` chunk-split invariant) so a physical RAM capture cannot be inverted to recover prior keystream.
 * **Full-State 256-Bit Companion Mode Architecture (`F256`, Wave 16):** Supports full 256-bit state companion modes (`HASH-W64`, `CFB-256`, `VFS-256`, and `DRBG-256`) while keeping the `40-byte` context unchanged.
-* **Word-Rate Sponge (`W64`) & Multi-Byte Stream Extraction (`process_payload_fast`, Wave 16):** Delivers `4x` to `8x` throughput acceleration across bulk stream encryption, hashing, MAC, KDF, VFS sector processing, and AEAD while preserving `100%` streaming chunk invariance and `1:1` byte-stream compatibility.
+* **Word-Rate Processing (`W64`) & Multi-Byte Stream Extraction (`process_payload_fast`, Wave 16):** Delivers `4x` to `8x` throughput acceleration across bulk stream encryption, hashing, MAC, KDF, VFS sector processing, and AEAD while preserving `100%` streaming chunk invariance and `1:1` byte-stream compatibility.
 * **Waves 1 - 16 & 38-Tool Formal Verification Battery:** Full-spectrum verification across 16 cryptanalysis waves, 38 external formal/SMT/SAT/MILP/SCA/RTL tools (`Bitwuzla`, `cvc5`, `CaDiCaL`, `Coq`, `F*`, `HiGHS`, `SCALib`, `Lascar`, `VerFI`, `SymbiYosys`), and a 7-engine reduced-round security-margin certification (`4.0x` to `24.0x` safety margin across the 24-round initialization schedule).
 
 ---
 
 ## 3. Waves 1 - 16 Cryptanalysis & 38-Tool Formal Verification Battery (v2.2.8.4)
 
-Apex Research Labs utilizes 38 independent formal verification, SMT/SAT/MILP solving, interactive theorem proving, side-channel leakage, and hardware RTL synthesis engines to verify the 256-bit state manifold:
+Apex Research Labs utilizes 38 independent formal verification, SMT/SAT/MILP solving, interactive theorem proving, side-channel leakage, and hardware RTL synthesis engines to verify the 256-bit state architecture:
 
 | Evaluation Vector | Scope / Methodology | Result |
 |---|---|---|
 | **Single-Step & Full-State Bijection** | 64-bit & 256-bit Z3, Bitwuzla, cvc5 SMT bitvector + Coq (`coqc`) & F* (`fstar.exe`) proofs | **PROVED UNSAT / QED (Strict Bijection)** |
 | **Same-Nonce 256-Bit Key Collision Search** | Exhaustive 256-bit symbolic SMT search for $K_1 \neq K_2$ collapsing to identical post-binding state | **PROVED UNSAT ($0$ Collisions across $2^{256}$ Keys)** |
 | **7-Engine Reduced-Round Security Margin** | Z3/Bitwuzla SMT, CaDiCaL SAT, HiGHS MILP division property, 64-thread OpenMP SAC, BoolTest, Gohr ResNet (`R = 1..24`) | **CERTIFIED `4.0x` to `24.0x` Safety Margin** |
-| **Hardware Multiplier Masking SCA** | Correlation Power Analysis (CPA) & TVLA across 64-bit modular multiplier datapath (`SCALib`, `Lascar`) | **`CPA \|r\| = 0.0024`, Welch `\|t\| = 0.74 < 4.50` (`100%` KAT-Exact)** |
+| **Hardware Side-Channel Hardening SCA** | Correlation Power Analysis (CPA) & TVLA across the arithmetic datapath (`SCALib`, `Lascar`) | **`CPA \|r\| = 0.0024`, Welch `\|t\| = 0.74 < 4.50` (`100%` KAT-Exact)** |
 | **CASCADA Rotational-XOR (`RX`) Trail Search** | 63 symbolic RX differential & invariant queries across rotation offsets $\gamma \in \{1..63\}$ | **63 / 63 UNSAT ($0$ RX Trails)** |
 | **CLAASP Avalanche & Gohr Neural Distinguisher** | Exact $320 \times 256$ diffusion matrix + multi-layer residual classifier ($R = 0..24$) | **$50.00\%$ SAC & $0.5000$ Neural Null at $R = 1$ (`24.0x` Margin)** |
 | **CROCS `BoolTest` Polynomial Battery** | Degree $d \in \{1, 2, 3\}$ Boolean monomial distinguishers over 128/256/512-bit blocks ($R = 0..24$) | **$\|Z_{\max}\| \le 4.28 < 4.89\sigma$ for All $R \ge 0$** |
@@ -60,13 +60,13 @@ All companion primitives operating across both the classic compatible modes and 
 
 | Companion Primitive | Security Verification & Architectural Posture | Status |
 |---|---|---|
-| **APEX-HASH & HASH-W64** | Full-state `F256` architecture, 64-bit word-rate sponge (`W64`, `4x` to `8x` speedup), 100% streaming chunk associativity, and length-framed MAC/KDF. | **PASSED** |
+| **APEX-HASH & HASH-W64** | Full-state `F256` architecture, 64-bit word-rate processing (`W64`, `4x` to `8x` speedup), 100% streaming chunk associativity, and length-framed MAC/KDF. | **PASSED** |
 | **APEX-AEAD, AEAD-X256 & AEAD-W64** | Domain-separated Encrypt-then-MAC with 64-bit and 256-bit (`X256`, $2^{128}$ birthday bound) nonces, fault-resistant tag verification, and strict Release of Unverified Plaintext (RUP) immunity. | **PASSED** |
 | **APEX-DRBG & DRBG-256** | Full 256-bit state generation with mandatory post-request backtracking resistance and NIST SP 800-90B non-IID min-entropy certification. | **PASSED** |
 | **APEX-VFS & VFS-256** | `O(1)` random-access sector encryption bound to `sector_index` and `write_epoch`, featuring 256-bit sector isolation (`VFS-256`) and fast multi-byte sector processing. | **PASSED** |
 | **APEX-CFB & CFB-256** | Lossless full-width 64-bit nonlinear ciphertext feedback across 256-bit state (`CFB-256`) with deterministic checkpoint continuation ($50.00\%$ Round-1 SAC). | **PASSED** |
 | **APEX-FPE (Format-Preserving)** | Branchless division-free format-preserving decimal digit encryption ($0$ `div`/`idiv` instructions). | **PASSED** |
-| **APEX-STEALTH & Fast Stream** | Power/EM side-channel equalization, ephemeral hardware multiplier blinding (`CPA \|r\| = 0.0024`), and multi-byte keystream extraction (`process_payload_fast`). | **PASSED** |
+| **APEX-STEALTH & Fast Stream** | Power/EM side-channel equalization, hardware side-channel hardening (`CPA \|r\| = 0.0024`), and multi-byte keystream extraction (`process_payload_fast`). | **PASSED** |
 
 ---
 
@@ -80,7 +80,7 @@ APEX-256 is engineered for Size, Weight, Power, and Cost (SWaP-C) constrained em
 | **Dynamic Heap & Static BSS** | **0 Bytes Heap / 0 Bytes `.bss`** | Zero `malloc()` / `free()`, `0 bytes` static `.bss`/`.tbss`/`.data`. Deterministic stack-only execution with unlimited concurrent instances. |
 | **Payload Expansion (Stream Mode)** | **0 Bytes (1:1 Density)** | Ciphertext length equals plaintext length; prevents sub-GHz / LoRa / BLE / MAVLink MTU packet fragmentation. |
 | **Extended Nonce & Forward Secrecy** | **64-Bit Std & 256-Bit `X256` Nonce + Ratchet** | `X256` provides $2^{128}$ random-nonce birthday safety with zero extra RAM; `process_payload_ratcheted` provides 256-byte irreversible one-way forward secrecy. |
-| **Constant-Time & Multiplier Blinding** | **Welch's $\|t\| = 0.74 < 4.50$, `CPA \|r\| = 0.0024`** | Ephemeral hardware multiplier blinding, `0` secret branches across `36 / 36` compiler matrix cells, and `0` Valgrind `ctgrind` leaks. |
+| **Constant-Time & Side-Channel Hardening** | **Welch's $\|t\| = 0.74 < 4.50$, `CPA \|r\| = 0.0024`** | Side-channel hardened arithmetic, `0` secret branches across `36 / 36` compiler matrix cells, and `0` Valgrind `ctgrind` leaks. |
 | **Custom Module Stripping & Provenance** | **Build Forge Preprocessor Pruning** | Unselected companion modules are physically stripped at build time; compile-time target-architecture verification prevents cross-platform mismatch. |
 
 > **Reproducible Silicon Benchmarks:** Cycle-per-byte, Flash footprint, and microamp power captures (recorded on physical `STM32F405`, `STM32H757`, and `ESP32-S3` boards using a Nordic PPK2 at 100 kSPS, Saleae Logic Pro 8, and bladeRF 2.0 Micro in our Henderson, NV lab) depend on compiler flags and target silicon. Rather than publishing uncontextualized marketing numbers, we ship the full reproducible benchmark harness and raw logs inside the **Engineering Evaluation Kit**.
