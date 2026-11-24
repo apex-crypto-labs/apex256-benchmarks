@@ -55,4 +55,5 @@ Raw logs from my runs: wolfssl_5.9.4_cnsa20_apex256_v2504_3runs.tar.gz
 
 *Published on the Apex Research Labs Engineering Blog: https://apex256.com/blog/cnsa20-under-20kib.html*
 *Detailed 3-run summary table: [RESULTS_3RUNS_SUMMARY.md](RESULTS_3RUNS_SUMMARY.md)*
-*Raw 3-run Valgrind Massif / ms_print / time archive: [wolfssl_5.9.4_cnsa20_apex256_v2504_3runs.tar.gz](wolfssl_5.9.4_cnsa20_apex256_v2504_3runs.tar.gz)*
+*Browse raw Massif, `ms_print` ASCII charts, and `time -v` logs in-browser: [`run_1/`](run_1/) | [`run_2/`](run_2/) | [`run_3/`](run_3/)*
+*Single-file tarball download: [wolfssl_5.9.4_cnsa20_apex256_v2504_3runs.tar.gz](wolfssl_5.9.4_cnsa20_apex256_v2504_3runs.tar.gz)*

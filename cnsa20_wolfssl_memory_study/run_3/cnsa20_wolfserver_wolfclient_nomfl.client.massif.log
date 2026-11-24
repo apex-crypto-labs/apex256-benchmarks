@@ -1,0 +1,12 @@
+==1225== Massif, a heap profiler
+==1225== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==1225== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==1225== Command: wolfssl-client -h 127.0.0.1 -p 11407 -v 4 -l TLS13-AES256-GCM-SHA384 --pqc ML_KEM_1024 -A /usr/share/wolfssl/certs/ca-mldsa87-cert.pem -x -g
+==1225== 
+connecting to 127.0.0.1:11407
+Using Post-Quantum KEM: ML_KEM_1024
+SSL version is TLSv1.3
+SSL cipher suite is TLS_AES_256_GCM_SHA384
+SSL connect ok, sending GET...
+I hear you fa shizzle!
+==1225== 

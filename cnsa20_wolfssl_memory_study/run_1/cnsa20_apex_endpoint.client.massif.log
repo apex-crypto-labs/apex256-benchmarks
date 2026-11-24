@@ -1,0 +1,6 @@
+==563== Massif, a heap profiler
+==563== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==563== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==563== Command: apex-ram-endpoint cnsa20-apex client 11213 /usr/share/wolfssl/certs/server-mldsa87-pub.der
+==563== 
+==563== 

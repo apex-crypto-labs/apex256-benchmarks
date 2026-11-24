@@ -1,0 +1,11 @@
+==1083== Massif, a heap profiler
+==1083== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==1083== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==1083== Command: apex-ram-endpoint apex-v250-primitives init-only 11323
+==1083== 
+==1083== 
+==1083== Process terminating with default action of signal 15 (SIGTERM)
+==1083==    at 0x49A3194: pause (pause.c:29)
+==1083==    by 0x10B67E: ??? (in /usr/bin/apex-ram-endpoint)
+==1083==    by 0x48EE08D: (below main) (libc_start_call_main.h:58)
+==1083== 

@@ -1,0 +1,1805 @@
+desc: --stacks=yes --peak-inaccuracy=0.1 --max-snapshots=200 --detailed-freq=1000000 --massif-out-file=/root/results_run_2/cnsa20_wolfserver_wolfclient.server.massif
+cmd: wolfssl-server -v 4 -l TLS13-AES256-GCM-SHA384 --pqc ML_KEM_1024 -c /usr/share/wolfssl/certs/server-mldsa87.pem -k /usr/share/wolfssl/certs/server-mldsa87-key.pem -d -p 11301
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=190024
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1304
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=431708
+mem_heap_B=12816
+mem_heap_extra_B=120
+mem_stacks_B=1520
+heap_tree=detailed
+n7: 12816 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 10402 0x489AECC: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 10402 0x489B351: wolfSSL_CTX_use_certificate_chain_file (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 10402 0x10D054: ??? (in /usr/bin/wolfssl-server)
+    n1: 10402 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+     n0: 10402 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 1024 0x493B5EC: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x494A3E8: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x494A3E8: _IO_doallocbuf (genops.c:342)
+    n1: 1024 0x4948ABB: _IO_file_seekoff@@GLIBC_2.2.5 (fileops.c:938)
+     n1: 1024 0x49449C8: fseek (fseek.c:36)
+      n1: 1024 0x4896C0E: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+       n1: 1024 0x489AE81: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+        n1: 1024 0x489B351: wolfSSL_CTX_use_certificate_chain_file (in /usr/lib/libwolfssl.so.46.0.0)
+         n1: 1024 0x10D054: ??? (in /usr/bin/wolfssl-server)
+          n1: 1024 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+           n0: 1024 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n2: 472 0x493C0EE: __fopen_internal (iofopen.c:65)
+  n1: 472 0x489AE65: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 472 0x489B351: wolfSSL_CTX_use_certificate_chain_file (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 472 0x10D054: ??? (in /usr/bin/wolfssl-server)
+     n1: 472 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+      n0: 472 0x48EE08D: (below main) (libc_start_call_main.h:58)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 434 0x48890DD: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 434 0x489B8E5: wolfSSL_CTX_set_cipher_list (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 434 0x10E3DA: ??? (in /usr/bin/wolfssl-server)
+    n1: 434 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+     n0: 434 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 280 0x489C4D2: wolfSSL_CTX_new_ex (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 280 0x10CFB9: ??? (in /usr/bin/wolfssl-server)
+   n1: 280 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+    n0: 280 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 200 0x4896C92: wolfSSL_CertManagerNew_ex (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 200 0x4888D33: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 200 0x489C4E8: wolfSSL_CTX_new_ex (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 200 0x10CFB9: ??? (in /usr/bin/wolfssl-server)
+     n1: 200 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+      n0: 200 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n0: 4 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=3
+#-----------
+time=665962
+mem_heap_B=21708
+mem_heap_extra_B=124
+mem_stacks_B=1944
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=798853
+mem_heap_B=21708
+mem_heap_extra_B=124
+mem_stacks_B=1944
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=1011106
+mem_heap_B=21708
+mem_heap_extra_B=124
+mem_stacks_B=1944
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=1257460
+mem_heap_B=18046
+mem_heap_extra_B=130
+mem_stacks_B=1880
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=1455953
+mem_heap_B=24749
+mem_heap_extra_B=139
+mem_stacks_B=1944
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=1755326
+mem_heap_B=24749
+mem_heap_extra_B=139
+mem_stacks_B=1944
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=1963027
+mem_heap_B=20322
+mem_heap_extra_B=190
+mem_stacks_B=1992
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=2166649
+mem_heap_B=25691
+mem_heap_extra_B=325
+mem_stacks_B=1912
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=2302345
+mem_heap_B=25563
+mem_heap_extra_B=325
+mem_stacks_B=1928
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=2553644
+mem_heap_B=36749
+mem_heap_extra_B=379
+mem_stacks_B=2832
+heap_tree=detailed
+n14: 36749 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 17083 0x4877724: AllocDer (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 17083 0x4877D65: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 17083 0x4896877: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 17083 0x4899BBB: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+     n2: 17083 0x489AF5F: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+      n1: 10380 0x489B351: wolfSSL_CTX_use_certificate_chain_file (in /usr/lib/libwolfssl.so.46.0.0)
+       n1: 10380 0x10D054: ??? (in /usr/bin/wolfssl-server)
+        n1: 10380 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+         n0: 10380 0x48EE08D: (below main) (libc_start_call_main.h:58)
+      n1: 6703 0x489B30C: wolfSSL_CTX_use_PrivateKey_file (in /usr/lib/libwolfssl.so.46.0.0)
+       n1: 6703 0x10D082: ??? (in /usr/bin/wolfssl-server)
+        n1: 6703 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+         n0: 6703 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 6144 0x488011B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 6144 0x488151D: wc_MlKemKey_EncapsulateWithRandom (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 6144 0x488161A: wc_MlKemKey_Encapsulate (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 6144 0x48A0DB0: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 6144 0x48927FB: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+      n1: 6144 0x48A8F97: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+       n1: 6144 0x48AA52B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+        n1: 6144 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+         n1: 6144 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+          n1: 6144 0x489BF77: wolfSSL_accept (in /usr/lib/libwolfssl.so.46.0.0)
+           n1: 6144 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+            n1: 6144 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+             n0: 6144 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 2048 0x4880ED1: wc_MlKemKey_DecodePublicKey (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 2048 0x48A0D15: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 2048 0x48927FB: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 2048 0x48A8F97: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 2048 0x48AA52B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+      n1: 2048 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+       n1: 2048 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+        n1: 2048 0x489BF77: wolfSSL_accept (in /usr/lib/libwolfssl.so.46.0.0)
+         n1: 2048 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+          n1: 2048 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+           n0: 2048 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 1662 0x488B1E1: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 1662 0x488B5EA: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 1662 0x489495E: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 1662 0x489BF77: wolfSSL_accept (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 1662 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+      n1: 1662 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+       n0: 1662 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 1568 0x48A0CF6: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 1568 0x48927FB: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 1568 0x48A8F97: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 1568 0x48AA52B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 1568 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+      n1: 1568 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+       n1: 1568 0x489BF77: wolfSSL_accept (in /usr/lib/libwolfssl.so.46.0.0)
+        n1: 1568 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+         n1: 1568 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+          n0: 1568 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 1568 0x48A20CE: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 1568 0x48A3BA4: TLSX_Parse (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 1568 0x48A8E3E: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 1568 0x48AA52B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 1568 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+      n1: 1568 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+       n1: 1568 0x489BF77: wolfSSL_accept (in /usr/lib/libwolfssl.so.46.0.0)
+        n1: 1568 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+         n1: 1568 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+          n0: 1568 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n0: 1486 in 39 places, all below massif's threshold (1.00%)
+ n1: 1312 0x48987C7: wolfSSL_new (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 1312 0x10D1F9: ??? (in /usr/bin/wolfssl-server)
+   n1: 1312 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+    n0: 1312 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 1024 0x493B5EC: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x494A3E8: _IO_doallocbuf (genops.c:347)
+   n2: 1024 0x494A3E8: _IO_doallocbuf (genops.c:342)
+    n1: 1024 0x49485F7: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:745)
+     n1: 1024 0x49490C6: _IO_new_file_xsputn (fileops.c:1244)
+      n1: 1024 0x49490C6: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+       n1: 1024 0x491BA11: __printf_buffer_flush_to_file (printf_buffer_to_file.c:59)
+        n1: 1024 0x491BAE3: __printf_buffer_to_file_done (printf_buffer_to_file.c:120)
+         n1: 1024 0x4925878: __vfprintf_internal (vfprintf-internal.c:1545)
+          n1: 1024 0x49D7A7A: __printf_chk (printf_chk.c:33)
+           n1: 1024 0x10DA02: ??? (in /usr/bin/wolfssl-server)
+            n1: 1024 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+             n0: 1024 0x48EE08D: (below main) (libc_start_call_main.h:58)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 968 0x48A0C57: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 968 0x48927FB: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 968 0x48A8F97: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 968 0x48AA52B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 968 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+      n1: 968 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+       n1: 968 0x489BF77: wolfSSL_accept (in /usr/lib/libwolfssl.so.46.0.0)
+        n1: 968 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+         n1: 968 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+          n0: 968 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 512 0x4889AD9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 512 0x488A046: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 512 0x48987DC: wolfSSL_new (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 512 0x10D1F9: ??? (in /usr/bin/wolfssl-server)
+     n1: 512 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+      n0: 512 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 506 0x4881F05: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 506 0x488244D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 506 0x48801A3: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 506 0x488151D: wc_MlKemKey_EncapsulateWithRandom (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 506 0x488161A: wc_MlKemKey_Encapsulate (in /usr/lib/libwolfssl.so.46.0.0)
+      n1: 506 0x48A0DB0: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+       n1: 506 0x48927FB: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+        n1: 506 0x48A8F97: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+         n1: 506 0x48AA52B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+          n1: 506 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+           n1: 506 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+            n1: 506 0x489BF77: wolfSSL_accept (in /usr/lib/libwolfssl.so.46.0.0)
+             n1: 506 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+              n1: 506 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+               n0: 506 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 434 0x48890DD: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 434 0x489B8E5: wolfSSL_CTX_set_cipher_list (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 434 0x10E3DA: ??? (in /usr/bin/wolfssl-server)
+    n1: 434 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+     n0: 434 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 434 0x48A8AB2: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 434 0x48AA52B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 434 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 434 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 434 0x489BF77: wolfSSL_accept (in /usr/lib/libwolfssl.so.46.0.0)
+      n1: 434 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+       n1: 434 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+        n0: 434 0x48EE08D: (below main) (libc_start_call_main.h:58)
+#-----------
+snapshot=13
+#-----------
+time=2787574
+mem_heap_B=36749
+mem_heap_extra_B=379
+mem_stacks_B=2728
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=2927875
+mem_heap_B=36749
+mem_heap_extra_B=379
+mem_stacks_B=2728
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=3204172
+mem_heap_B=36243
+mem_heap_extra_B=365
+mem_stacks_B=2528
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=3471644
+mem_heap_B=26666
+mem_heap_extra_B=310
+mem_stacks_B=1528
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=3688710
+mem_heap_B=26113
+mem_heap_extra_B=335
+mem_stacks_B=2120
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=3849826
+mem_heap_B=25709
+mem_heap_extra_B=339
+mem_stacks_B=1872
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=4106979
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=4347789
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=4628109
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=4889616
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=5133185
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=5325833
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=5498164
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=5646288
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=5838936
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=6011267
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=6159391
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=6352039
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=6524370
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=6672494
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=6865142
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=7037473
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=7185597
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=7378245
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=7555288
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=7722781
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=7915429
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=8044831
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=8219830
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=8412478
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=8628614
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=8765041
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=8957689
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=9127581
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=9350387
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=9538850
+mem_heap_B=26466
+mem_heap_extra_B=342
+mem_stacks_B=1816
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=9706652
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=9895598
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=10120803
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=10288296
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=10480944
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=10610346
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=10785345
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=10977993
+mem_heap_B=26210
+mem_heap_extra_B=334
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=11110825
+mem_heap_B=26311
+mem_heap_extra_B=353
+mem_stacks_B=1816
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=11281051
+mem_heap_B=26183
+mem_heap_extra_B=345
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=11473699
+mem_heap_B=26183
+mem_heap_extra_B=345
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=11625138
+mem_heap_B=63209
+mem_heap_extra_B=415
+mem_stacks_B=2192
+heap_tree=detailed
+n10: 63209 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 26793 0x4884985: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 26793 0x4885B1C: wc_MlDsaKey_SignCtx (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 26793 0x48A9D4E: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 26793 0x48ABFE8: wolfSSL_accept_TLSv13 (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 26793 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+      n1: 26793 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+       n0: 26793 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 17083 0x4877724: AllocDer (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 17083 0x4877D65: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 17083 0x4896877: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 17083 0x4899BBB: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+     n2: 17083 0x489AF5F: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+      n1: 10380 0x489B351: wolfSSL_CTX_use_certificate_chain_file (in /usr/lib/libwolfssl.so.46.0.0)
+       n1: 10380 0x10D054: ??? (in /usr/bin/wolfssl-server)
+        n1: 10380 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+         n0: 10380 0x48EE08D: (below main) (libc_start_call_main.h:58)
+      n1: 6703 0x489B30C: wolfSSL_CTX_use_PrivateKey_file (in /usr/lib/libwolfssl.so.46.0.0)
+       n1: 6703 0x10D082: ??? (in /usr/bin/wolfssl-server)
+        n1: 6703 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+         n0: 6703 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 4896 0x4886833: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n2: 4896 0x4887810: wc_MlDsaKey_PrivateKeyDecode (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 4896 0x4890826: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 4896 0x48A9526: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 4896 0x48ABFE8: wolfSSL_accept_TLSv13 (in /usr/lib/libwolfssl.so.46.0.0)
+      n1: 4896 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+       n1: 4896 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+        n0: 4896 0x48EE08D: (below main) (libc_start_call_main.h:58)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 4631 0x48A9B4C: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 4631 0x48ABFE8: wolfSSL_accept_TLSv13 (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 4631 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+    n1: 4631 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+     n0: 4631 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n0: 3654 in 57 places, all below massif's threshold (1.00%)
+ n1: 1568 0x48A0CF6: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 1568 0x48927FB: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 1568 0x48A8F97: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 1568 0x48AA52B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 1568 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+      n1: 1568 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+       n1: 1568 0x489BF77: wolfSSL_accept (in /usr/lib/libwolfssl.so.46.0.0)
+        n1: 1568 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+         n1: 1568 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+          n0: 1568 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 1568 0x48A20CE: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 1568 0x48A3BA4: TLSX_Parse (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 1568 0x48A8E3E: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 1568 0x48AA52B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 1568 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+      n1: 1568 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+       n1: 1568 0x489BF77: wolfSSL_accept (in /usr/lib/libwolfssl.so.46.0.0)
+        n1: 1568 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+         n1: 1568 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+          n0: 1568 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 1312 0x48987C7: wolfSSL_new (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 1312 0x10D1F9: ??? (in /usr/bin/wolfssl-server)
+   n1: 1312 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+    n0: 1312 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 1024 0x493B5EC: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x494A3E8: _IO_doallocbuf (genops.c:347)
+   n2: 1024 0x494A3E8: _IO_doallocbuf (genops.c:342)
+    n1: 1024 0x49485F7: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:745)
+     n1: 1024 0x49490C6: _IO_new_file_xsputn (fileops.c:1244)
+      n1: 1024 0x49490C6: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+       n1: 1024 0x491BA11: __printf_buffer_flush_to_file (printf_buffer_to_file.c:59)
+        n1: 1024 0x491BAE3: __printf_buffer_to_file_done (printf_buffer_to_file.c:120)
+         n1: 1024 0x4925878: __vfprintf_internal (vfprintf-internal.c:1545)
+          n1: 1024 0x49D7A7A: __printf_chk (printf_chk.c:33)
+           n1: 1024 0x10DA02: ??? (in /usr/bin/wolfssl-server)
+            n1: 1024 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+             n0: 1024 0x48EE08D: (below main) (libc_start_call_main.h:58)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 680 0x4884AFD: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 680 0x4885B1C: wc_MlDsaKey_SignCtx (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 680 0x48A9D4E: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 680 0x48ABFE8: wolfSSL_accept_TLSv13 (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 680 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+      n1: 680 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+       n0: 680 0x48EE08D: (below main) (libc_start_call_main.h:58)
+#-----------
+snapshot=61
+#-----------
+time=11910893
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=12150278
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=12305212
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2008
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=12541516
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=12691824
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=12843675
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=13083060
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=68
+#-----------
+time=13264129
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=13503521
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=70
+#-----------
+time=13658448
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2008
+heap_tree=empty
+#-----------
+snapshot=71
+#-----------
+time=13894745
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=72
+#-----------
+time=14045060
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=73
+#-----------
+time=14196911
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=74
+#-----------
+time=14436296
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=75
+#-----------
+time=14617379
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=76
+#-----------
+time=14856764
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=77
+#-----------
+time=15011698
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2008
+heap_tree=empty
+#-----------
+snapshot=78
+#-----------
+time=15247995
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=79
+#-----------
+time=15475934
+mem_heap_B=63553
+mem_heap_extra_B=407
+mem_stacks_B=2336
+heap_tree=peak
+n10: 63553 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 26793 0x4884985: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 26793 0x4885B1C: wc_MlDsaKey_SignCtx (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 26793 0x48A9D4E: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 26793 0x48ABFE8: wolfSSL_accept_TLSv13 (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 26793 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+      n1: 26793 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+       n0: 26793 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 17083 0x4877724: AllocDer (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 17083 0x4877D65: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 17083 0x4896877: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 17083 0x4899BBB: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+     n2: 17083 0x489AF5F: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+      n1: 10380 0x489B351: wolfSSL_CTX_use_certificate_chain_file (in /usr/lib/libwolfssl.so.46.0.0)
+       n1: 10380 0x10D054: ??? (in /usr/bin/wolfssl-server)
+        n1: 10380 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+         n0: 10380 0x48EE08D: (below main) (libc_start_call_main.h:58)
+      n1: 6703 0x489B30C: wolfSSL_CTX_use_PrivateKey_file (in /usr/lib/libwolfssl.so.46.0.0)
+       n1: 6703 0x10D082: ??? (in /usr/bin/wolfssl-server)
+        n1: 6703 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+         n0: 6703 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 4896 0x4886833: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n2: 4896 0x4887810: wc_MlDsaKey_PrivateKeyDecode (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 4896 0x4890826: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 4896 0x48A9526: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 4896 0x48ABFE8: wolfSSL_accept_TLSv13 (in /usr/lib/libwolfssl.so.46.0.0)
+      n1: 4896 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+       n1: 4896 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+        n0: 4896 0x48EE08D: (below main) (libc_start_call_main.h:58)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 4631 0x48A9B4C: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 4631 0x48ABFE8: wolfSSL_accept_TLSv13 (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 4631 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+    n1: 4631 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+     n0: 4631 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n0: 3654 in 58 places, all below massif's threshold (1.00%)
+ n1: 1568 0x48A0CF6: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 1568 0x48927FB: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 1568 0x48A8F97: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 1568 0x48AA52B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 1568 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+      n1: 1568 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+       n1: 1568 0x489BF77: wolfSSL_accept (in /usr/lib/libwolfssl.so.46.0.0)
+        n1: 1568 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+         n1: 1568 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+          n0: 1568 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 1568 0x48A20CE: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 1568 0x48A3BA4: TLSX_Parse (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 1568 0x48A8E3E: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 1568 0x48AA52B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 1568 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+      n1: 1568 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+       n1: 1568 0x489BF77: wolfSSL_accept (in /usr/lib/libwolfssl.so.46.0.0)
+        n1: 1568 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+         n1: 1568 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+          n0: 1568 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 1312 0x48987C7: wolfSSL_new (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 1312 0x10D1F9: ??? (in /usr/bin/wolfssl-server)
+   n1: 1312 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+    n0: 1312 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 1024 0x4884D96: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  n1: 1024 0x4885B1C: wc_MlDsaKey_SignCtx (in /usr/lib/libwolfssl.so.46.0.0)
+   n1: 1024 0x48A9D4E: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+    n1: 1024 0x48ABFE8: wolfSSL_accept_TLSv13 (in /usr/lib/libwolfssl.so.46.0.0)
+     n1: 1024 0x10D60F: ??? (in /usr/bin/wolfssl-server)
+      n1: 1024 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+       n0: 1024 0x48EE08D: (below main) (libc_start_call_main.h:58)
+ n1: 1024 0x493B5EC: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x494A3E8: _IO_doallocbuf (genops.c:347)
+   n2: 1024 0x494A3E8: _IO_doallocbuf (genops.c:342)
+    n1: 1024 0x49485F7: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:745)
+     n1: 1024 0x49490C6: _IO_new_file_xsputn (fileops.c:1244)
+      n1: 1024 0x49490C6: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+       n1: 1024 0x491BA11: __printf_buffer_flush_to_file (printf_buffer_to_file.c:59)
+        n1: 1024 0x491BAE3: __printf_buffer_to_file_done (printf_buffer_to_file.c:120)
+         n1: 1024 0x4925878: __vfprintf_internal (vfprintf-internal.c:1545)
+          n1: 1024 0x49D7A7A: __printf_chk (printf_chk.c:33)
+           n1: 1024 0x10DA02: ??? (in /usr/bin/wolfssl-server)
+            n1: 1024 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+             n0: 1024 0x48EE08D: (below main) (libc_start_call_main.h:58)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=80
+#-----------
+time=15636482
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=81
+#-----------
+time=15801968
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=82
+#-----------
+time=16044246
+mem_heap_B=63209
+mem_heap_extra_B=415
+mem_stacks_B=2088
+heap_tree=empty
+#-----------
+snapshot=83
+#-----------
+time=16191344
+mem_heap_B=63209
+mem_heap_extra_B=415
+mem_stacks_B=2088
+heap_tree=empty
+#-----------
+snapshot=84
+#-----------
+time=16349921
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=85
+#-----------
+time=16589313
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=86
+#-----------
+time=16750750
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=87
+#-----------
+time=16980542
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=88
+#-----------
+time=17135469
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2008
+heap_tree=empty
+#-----------
+snapshot=89
+#-----------
+time=17371780
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=90
+#-----------
+time=17673932
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=91
+#-----------
+time=17913324
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=92
+#-----------
+time=18094393
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=93
+#-----------
+time=18333778
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=94
+#-----------
+time=18488712
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2008
+heap_tree=empty
+#-----------
+snapshot=95
+#-----------
+time=18725016
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=96
+#-----------
+time=18875319
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=97
+#-----------
+time=19027182
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=98
+#-----------
+time=19266567
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=99
+#-----------
+time=19524090
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=100
+#-----------
+time=19657798
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=101
+#-----------
+time=19806711
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=102
+#-----------
+time=19936946
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=103
+#-----------
+time=20070801
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=104
+#-----------
+time=20208581
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=105
+#-----------
+time=20340361
+mem_heap_B=63209
+mem_heap_extra_B=415
+mem_stacks_B=2088
+heap_tree=empty
+#-----------
+snapshot=106
+#-----------
+time=20474857
+mem_heap_B=63209
+mem_heap_extra_B=415
+mem_stacks_B=2088
+heap_tree=empty
+#-----------
+snapshot=107
+#-----------
+time=20618713
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=108
+#-----------
+time=20748772
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2056
+heap_tree=empty
+#-----------
+snapshot=109
+#-----------
+time=20881716
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=110
+#-----------
+time=21013036
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2008
+heap_tree=empty
+#-----------
+snapshot=111
+#-----------
+time=21146248
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=112
+#-----------
+time=21279954
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=113
+#-----------
+time=21410773
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=114
+#-----------
+time=21544493
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=115
+#-----------
+time=21678201
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=116
+#-----------
+time=21820105
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=117
+#-----------
+time=21949728
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=118
+#-----------
+time=22091653
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=119
+#-----------
+time=22221710
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2056
+heap_tree=empty
+#-----------
+snapshot=120
+#-----------
+time=22363185
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=121
+#-----------
+time=22493244
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2056
+heap_tree=empty
+#-----------
+snapshot=122
+#-----------
+time=22626181
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=123
+#-----------
+time=22757504
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2008
+heap_tree=empty
+#-----------
+snapshot=124
+#-----------
+time=22890713
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=125
+#-----------
+time=23024428
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=126
+#-----------
+time=23173348
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=127
+#-----------
+time=23302983
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=128
+#-----------
+time=23444896
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=129
+#-----------
+time=23574960
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2056
+heap_tree=empty
+#-----------
+snapshot=130
+#-----------
+time=23716435
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=131
+#-----------
+time=23846494
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2056
+heap_tree=empty
+#-----------
+snapshot=132
+#-----------
+time=23979424
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=133
+#-----------
+time=24110735
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2008
+heap_tree=empty
+#-----------
+snapshot=134
+#-----------
+time=24256712
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=135
+#-----------
+time=24394742
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=136
+#-----------
+time=24532522
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=137
+#-----------
+time=24668793
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=138
+#-----------
+time=24805792
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=139
+#-----------
+time=24944025
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=140
+#-----------
+time=25081010
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=141
+#-----------
+time=25216478
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=142
+#-----------
+time=25353462
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=143
+#-----------
+time=25495073
+mem_heap_B=62529
+mem_heap_extra_B=399
+mem_stacks_B=2000
+heap_tree=empty
+#-----------
+snapshot=144
+#-----------
+time=25627858
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=145
+#-----------
+time=25762367
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=146
+#-----------
+time=25898826
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=147
+#-----------
+time=26028866
+mem_heap_B=36611
+mem_heap_extra_B=405
+mem_stacks_B=1816
+heap_tree=empty
+#-----------
+snapshot=148
+#-----------
+time=26159705
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=149
+#-----------
+time=26291420
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=150
+#-----------
+time=26427879
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=151
+#-----------
+time=26562193
+mem_heap_B=36611
+mem_heap_extra_B=405
+mem_stacks_B=1816
+heap_tree=empty
+#-----------
+snapshot=152
+#-----------
+time=26691706
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=1896
+heap_tree=empty
+#-----------
+snapshot=153
+#-----------
+time=26828500
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=154
+#-----------
+time=26964959
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=155
+#-----------
+time=27097661
+mem_heap_B=36483
+mem_heap_extra_B=405
+mem_stacks_B=1816
+heap_tree=empty
+#-----------
+snapshot=156
+#-----------
+time=27228109
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=157
+#-----------
+time=27357551
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=158
+#-----------
+time=27494010
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=159
+#-----------
+time=27623462
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=1896
+heap_tree=empty
+#-----------
+snapshot=160
+#-----------
+time=27755244
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=161
+#-----------
+time=27886604
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=162
+#-----------
+time=28023063
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=163
+#-----------
+time=28155155
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=164
+#-----------
+time=28287099
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=165
+#-----------
+time=28423684
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=166
+#-----------
+time=28560161
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=167
+#-----------
+time=28691714
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=168
+#-----------
+time=28824305
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=169
+#-----------
+time=28960764
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=170
+#-----------
+time=29091601
+mem_heap_B=36611
+mem_heap_extra_B=405
+mem_stacks_B=1816
+heap_tree=empty
+#-----------
+snapshot=171
+#-----------
+time=29223561
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=172
+#-----------
+time=29353358
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=173
+#-----------
+time=29489817
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=174
+#-----------
+time=29619857
+mem_heap_B=36611
+mem_heap_extra_B=405
+mem_stacks_B=1816
+heap_tree=empty
+#-----------
+snapshot=175
+#-----------
+time=29750696
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=1936
+heap_tree=empty
+#-----------
+snapshot=176
+#-----------
+time=29882411
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=177
+#-----------
+time=30018870
+mem_heap_B=36355
+mem_heap_extra_B=397
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=178
+#-----------
+time=30154822
+mem_heap_B=35870
+mem_heap_extra_B=402
+mem_stacks_B=2048
+heap_tree=empty
+#-----------
+snapshot=179
+#-----------
+time=30285346
+mem_heap_B=25761
+mem_heap_extra_B=335
+mem_stacks_B=1808
+heap_tree=empty
+#-----------
+snapshot=180
+#-----------
+time=30415329
+mem_heap_B=26673
+mem_heap_extra_B=351
+mem_stacks_B=1944
+heap_tree=empty
+#-----------
+snapshot=181
+#-----------
+time=30550184
+mem_heap_B=26910
+mem_heap_extra_B=402
+mem_stacks_B=2168
+heap_tree=empty
+#-----------
+snapshot=182
+#-----------
+time=30684159
+mem_heap_B=25672
+mem_heap_extra_B=368
+mem_stacks_B=1760
+heap_tree=empty
+#-----------
+snapshot=183
+#-----------
+time=30816840
+mem_heap_B=21309
+mem_heap_extra_B=235
+mem_stacks_B=1824
+heap_tree=empty

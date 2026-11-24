@@ -1,0 +1,12 @@
+connecting to 127.0.0.1:11312
+Using Post-Quantum KEM: ML_KEM_1024
+SSL version is TLSv1.3
+SSL cipher suite is TLS_AES_256_GCM_SHA384
+SSL connect ok, sending GET...
+HTTP/1.0 200 ok
+Content-type: text/html
+
+<HTML><BODY BGCOLOR="#ffffff">
+<pre>
+
+s_server -accept 11312 -cert /usr/share/wolfssl/certs/server-mldsa87.pem -key /usr/share/wolfssl/certs/server-mldsa87-key.pem -tls1_3 -ciphersuites TLS_AES_256_GCM_SHA384 -g

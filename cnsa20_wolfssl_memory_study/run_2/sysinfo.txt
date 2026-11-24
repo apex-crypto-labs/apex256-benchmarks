@@ -1,0 +1,11 @@
+date: Mon Nov 23 15:48:48 UTC 2026
+uname: Linux genericx86-64 6.6.21-yocto-standard #1 SMP PREEMPT_DYNAMIC Tue Mar 19 16:42:51 UTC 2024 x86_64 GNU/Linux
+openssl: OpenSSL 3.5.8 25 Aug 2026 (Library: OpenSSL 3.5.8 25 Aug 2026)
+wolfssl: server 5.9.4 NOTE: All files relative to wolfSSL home dir
+valgrind: valgrind-3.22.0
+bin: 489600 /usr/lib/libwolfssl.so.46.0.0
+bin: 1048408 /usr/lib/libssl.so.3
+bin: 6099320 /usr/lib/libcrypto.so.3
+bin: 100400 /usr/bin/apex-ram-endpoint
+MemTotal:         998100 kB
+MemFree:          922220 kB

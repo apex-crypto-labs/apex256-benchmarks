@@ -1,0 +1,6 @@
+listening on port 11310
+Using Post-Quantum KEM: ML_KEM_1024
+SSL version is TLSv1.3
+SSL cipher suite is TLS_AES_256_GCM_SHA384
+Client message: hello from openssl
+

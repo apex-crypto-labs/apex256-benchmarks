@@ -1,0 +1,6 @@
+==596== Massif, a heap profiler
+==596== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==596== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==596== Command: apex-ram-endpoint apex-pure client 11215
+==596== 
+==596== 

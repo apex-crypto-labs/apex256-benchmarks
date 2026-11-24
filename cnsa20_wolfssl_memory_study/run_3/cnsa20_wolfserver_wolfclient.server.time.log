@@ -1,0 +1,7 @@
+listening on port 11402
+Using Post-Quantum KEM: ML_KEM_1024
+SSL version is TLSv1.3
+SSL cipher suite is TLS_AES_256_GCM_SHA384
+Client message: GET /index.html HTTP/1.0
+
+

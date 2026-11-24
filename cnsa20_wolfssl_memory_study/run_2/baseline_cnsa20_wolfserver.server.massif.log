@@ -1,0 +1,13 @@
+==1036== Massif, a heap profiler
+==1036== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==1036== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==1036== Command: wolfssl-server -v 4 -l TLS13-AES256-GCM-SHA384 --pqc ML_KEM_1024 -c /usr/share/wolfssl/certs/server-mldsa87.pem -k /usr/share/wolfssl/certs/server-mldsa87-key.pem -d -p 11319
+==1036== 
+listening on port 11319
+==1036== 
+==1036== Process terminating with default action of signal 15 (SIGTERM)
+==1036==    at 0x49CCE04: accept (accept.c:26)
+==1036==    by 0x10D288: ??? (in /usr/bin/wolfssl-server)
+==1036==    by 0x10B58B: ??? (in /usr/bin/wolfssl-server)
+==1036==    by 0x48EE08D: (below main) (libc_start_call_main.h:58)
+==1036== 

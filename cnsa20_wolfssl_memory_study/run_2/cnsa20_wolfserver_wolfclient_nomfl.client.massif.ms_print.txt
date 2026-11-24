@@ -1,0 +1,580 @@
+--------------------------------------------------------------------------------
+Command:            wolfssl-client -h 127.0.0.1 -p 11307 -v 4 -l TLS13-AES256-GCM-SHA384 --pqc ML_KEM_1024 -A /usr/share/wolfssl/certs/ca-mldsa87-cert.pem -x -g
+Massif arguments:   --stacks=yes --peak-inaccuracy=0.1 --max-snapshots=200 --detailed-freq=1000000 --massif-out-file=/root/results_run_2/cnsa20_wolfserver_wolfclient_nomfl.client.massif
+ms_print arguments: cnsa20_wolfserver_wolfclient_nomfl.client.massif
+--------------------------------------------------------------------------------
+
+
+    KB
+38.74^                                  #                                     
+     |                                  #::::::::                             
+     |                                  #::::::::                             
+     |                                  #::::::::                :::::::::    
+     |         @::                      #::::::::                :::::::::    
+     |         @::                      #::::::::                :::::::::    
+     |         @::                     :#::::::::                :::::::::    
+     |         @::                     :#::::::::::::            :::::::::    
+     |  :::   :@:::                    :#::::::::::::           ::::::::::    
+     |  :::::::@::: ::::::::::::::::::::#:::::::::::::::::::::::::::::::::    
+     |  :::::::@::: ::::::::::::::::::::#:::::::::::::::::::::::::::::::::::  
+     |  :::::::@::::::::::::::::::::::::#:::::::::::::::::::::::::::::::::::::
+     |  :::::::@::::::::::::::::::::::::#:::::::::::::::::::::::::::::::::::::
+     |  @::::::@::::::::::::::::::::::::#:::::::::::::::::::::::::::::::::::::
+     |  @::::::@::::::::::::::::::::::::#:::::::::::::::::::::::::::::::::::::
+     |  @::::::@::::::::::::::::::::::::#:::::::::::::::::::::::::::::::::::::
+     |  @::::::@::::::::::::::::::::::::#:::::::::::::::::::::::::::::::::::::
+     |  @::::::@::::::::::::::::::::::::#:::::::::::::::::::::::::::::::::::::
+     |  @::::::@::::::::::::::::::::::::#:::::::::::::::::::::::::::::::::::::
+     | :@::::::@::::::::::::::::::::::::#:::::::::::::::::::::::::::::::::::::
+   0 +----------------------------------------------------------------------->Mi
+     0                                                                   21.99
+
+Number of snapshots: 188
+ Detailed snapshots: [5, 20, 81 (peak)]
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  0              0                0                0             0            0
+  1        121,851            1,304                0             0        1,304
+  2        222,076            1,624                0             0        1,624
+  3        350,940            1,584                0             0        1,584
+  4        537,669            3,808            1,204           100        2,504
+  5        678,038           15,192           12,947           133        2,112
+85.22% (12,947B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->68.17% (10,357B) 0x489AECC: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->68.17% (10,357B) 0x489B105: wolfSSL_CTX_load_verify_locations_ex (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->68.17% (10,357B) 0x10E8C4: ??? (in /usr/bin/wolfssl-client)
+|     ->68.17% (10,357B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|       ->68.17% (10,357B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|         
+->06.74% (1,024B) 0x493B5EC: _IO_file_doallocate (filedoalloc.c:101)
+| ->06.74% (1,024B) 0x494A3E8: _IO_doallocbuf (genops.c:347)
+|   ->06.74% (1,024B) 0x494A3E8: _IO_doallocbuf (genops.c:342)
+|     ->06.74% (1,024B) 0x4948ABB: _IO_file_seekoff@@GLIBC_2.2.5 (fileops.c:938)
+|       ->06.74% (1,024B) 0x49449C8: fseek (fseek.c:36)
+|         ->06.74% (1,024B) 0x4896C0E: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|           ->06.74% (1,024B) 0x489AE81: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|             ->06.74% (1,024B) 0x489B105: wolfSSL_CTX_load_verify_locations_ex (in /usr/lib/libwolfssl.so.46.0.0)
+|               ->06.74% (1,024B) 0x10E8C4: ??? (in /usr/bin/wolfssl-client)
+|                 ->06.74% (1,024B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|                   ->06.74% (1,024B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|                     
+->03.11% (472B) 0x493C0EE: __fopen_internal (iofopen.c:65)
+| ->03.11% (472B) 0x489AE65: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| | ->03.11% (472B) 0x489B105: wolfSSL_CTX_load_verify_locations_ex (in /usr/lib/libwolfssl.so.46.0.0)
+| |   ->03.11% (472B) 0x10E8C4: ??? (in /usr/bin/wolfssl-client)
+| |     ->03.11% (472B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+| |       ->03.11% (472B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+| |         
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->02.86% (434B) 0x48890DD: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->02.86% (434B) 0x489B8E5: wolfSSL_CTX_set_cipher_list (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->02.86% (434B) 0x10E2C5: ??? (in /usr/bin/wolfssl-client)
+|     ->02.86% (434B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|       ->02.86% (434B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|         
+->01.84% (280B) 0x489C4D2: wolfSSL_CTX_new_ex (in /usr/lib/libwolfssl.so.46.0.0)
+| ->01.84% (280B) 0x10D1E4: ??? (in /usr/bin/wolfssl-client)
+|   ->01.84% (280B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|     ->01.84% (280B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|       
+->01.32% (200B) 0x4896C92: wolfSSL_CertManagerNew_ex (in /usr/lib/libwolfssl.so.46.0.0)
+| ->01.32% (200B) 0x4888D33: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->01.32% (200B) 0x489C4E8: wolfSSL_CTX_new_ex (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->01.32% (200B) 0x10D1E4: ??? (in /usr/bin/wolfssl-client)
+|       ->01.32% (200B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|         ->01.32% (200B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|           
+->01.18% (180B) in 12 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  6        850,893           24,592           21,794           134        2,664
+  7        967,707           24,592           21,794           134        2,664
+  8      1,130,372           24,584           21,794           134        2,656
+  9      1,327,164           24,592           21,794           134        2,664
+ 10      1,530,084           24,592           21,794           134        2,664
+ 11      1,738,081           22,216           19,516           292        2,408
+ 12      1,888,160           22,920           20,022           306        2,592
+ 13      2,022,834           23,008           20,022           306        2,680
+ 14      2,140,689           23,008           20,022           306        2,680
+ 15      2,251,599           22,248           19,516           292        2,440
+ 16      2,442,107           19,824           17,468           284        2,072
+ 17      2,633,756           16,832           14,450           310        2,072
+ 18      2,836,369           23,944           20,790           346        2,808
+ 19      3,012,190           28,224           24,918           362        2,944
+ 20      3,147,387           32,920           29,008           376        3,536
+88.12% (29,008B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->18.66% (6,144B) 0x488011B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->18.66% (6,144B) 0x488136E: wc_MlKemKey_Decapsulate (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->18.66% (6,144B) 0x489EE36: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->18.66% (6,144B) 0x48A242B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|       ->18.66% (6,144B) 0x48A3BA4: TLSX_Parse (in /usr/lib/libwolfssl.so.46.0.0)
+|         ->18.66% (6,144B) 0x48A8730: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|           ->18.66% (6,144B) 0x48AA643: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|             ->18.66% (6,144B) 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|               ->18.66% (6,144B) 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|                 ->18.66% (6,144B) 0x489BCC3: wolfSSL_connect (in /usr/lib/libwolfssl.so.46.0.0)
+|                   ->18.66% (6,144B) 0x10E10C: ??? (in /usr/bin/wolfssl-client)
+|                     ->18.66% (6,144B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|                       ->18.66% (6,144B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|                         
+->09.62% (3,168B) 0x48A0285: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->09.62% (3,168B) 0x48A1F4B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->09.62% (3,168B) 0x48AB7C6: wolfSSL_UseKeyShare (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->09.62% (3,168B) 0x10C0F4: ??? (in /usr/bin/wolfssl-client)
+|       ->09.62% (3,168B) 0x10E080: ??? (in /usr/bin/wolfssl-client)
+|         ->09.62% (3,168B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|           ->09.62% (3,168B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|             
+->07.87% (2,592B) 0x48761A4: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->07.87% (2,592B) 0x4876DB1: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->07.87% (2,592B) 0x4877260: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->07.87% (2,592B) 0x4897661: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|       ->07.87% (2,592B) 0x489A396: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|         ->07.87% (2,592B) 0x489AD98: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|           ->07.87% (2,592B) 0x489AFDD: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|             ->07.87% (2,592B) 0x489B105: wolfSSL_CTX_load_verify_locations_ex (in /usr/lib/libwolfssl.so.46.0.0)
+|               ->07.87% (2,592B) 0x10E8C4: ??? (in /usr/bin/wolfssl-client)
+|                 ->07.87% (2,592B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|                   ->07.87% (2,592B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|                     
+->06.22% (2,048B) 0x487FF4D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->06.22% (2,048B) 0x4880B3A: wc_MlKemKey_DecodePrivateKey (in /usr/lib/libwolfssl.so.46.0.0)
+| | ->06.22% (2,048B) 0x489EDF0: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| |   ->06.22% (2,048B) 0x48A242B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| |     ->06.22% (2,048B) 0x48A3BA4: TLSX_Parse (in /usr/lib/libwolfssl.so.46.0.0)
+| |       ->06.22% (2,048B) 0x48A8730: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| |         ->06.22% (2,048B) 0x48AA643: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| |           ->06.22% (2,048B) 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| |             ->06.22% (2,048B) 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| |               ->06.22% (2,048B) 0x489BCC3: wolfSSL_connect (in /usr/lib/libwolfssl.so.46.0.0)
+| |                 ->06.22% (2,048B) 0x10E10C: ??? (in /usr/bin/wolfssl-client)
+| |                   ->06.22% (2,048B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+| |                     ->06.22% (2,048B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+| |                       
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->06.22% (2,048B) 0x4880B6B: wc_MlKemKey_DecodePrivateKey (in /usr/lib/libwolfssl.so.46.0.0)
+| ->06.22% (2,048B) 0x489EDF0: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->06.22% (2,048B) 0x48A242B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->06.22% (2,048B) 0x48A3BA4: TLSX_Parse (in /usr/lib/libwolfssl.so.46.0.0)
+|       ->06.22% (2,048B) 0x48A8730: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|         ->06.22% (2,048B) 0x48AA643: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|           ->06.22% (2,048B) 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|             ->06.22% (2,048B) 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|               ->06.22% (2,048B) 0x489BCC3: wolfSSL_connect (in /usr/lib/libwolfssl.so.46.0.0)
+|                 ->06.22% (2,048B) 0x10E10C: ??? (in /usr/bin/wolfssl-client)
+|                   ->06.22% (2,048B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|                     ->06.22% (2,048B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|                       
+->04.94% (1,626B) 0x488B1E1: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->04.94% (1,626B) 0x488B5EA: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->04.94% (1,626B) 0x489495E: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->04.94% (1,626B) 0x489BCC3: wolfSSL_connect (in /usr/lib/libwolfssl.so.46.0.0)
+|       ->04.94% (1,626B) 0x10E10C: ??? (in /usr/bin/wolfssl-client)
+|         ->04.94% (1,626B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|           ->04.94% (1,626B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|             
+->04.77% (1,570B) in 42 places, all below massif's threshold (1.00%)
+| 
+->04.76% (1,568B) 0x488123B: wc_MlKemKey_Decapsulate (in /usr/lib/libwolfssl.so.46.0.0)
+| ->04.76% (1,568B) 0x489EE36: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->04.76% (1,568B) 0x48A242B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->04.76% (1,568B) 0x48A3BA4: TLSX_Parse (in /usr/lib/libwolfssl.so.46.0.0)
+|       ->04.76% (1,568B) 0x48A8730: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|         ->04.76% (1,568B) 0x48AA643: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|           ->04.76% (1,568B) 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|             ->04.76% (1,568B) 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|               ->04.76% (1,568B) 0x489BCC3: wolfSSL_connect (in /usr/lib/libwolfssl.so.46.0.0)
+|                 ->04.76% (1,568B) 0x10E10C: ??? (in /usr/bin/wolfssl-client)
+|                   ->04.76% (1,568B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|                     ->04.76% (1,568B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|                       
+->04.76% (1,568B) 0x48A0299: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->04.76% (1,568B) 0x48A1F4B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->04.76% (1,568B) 0x48AB7C6: wolfSSL_UseKeyShare (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->04.76% (1,568B) 0x10C0F4: ??? (in /usr/bin/wolfssl-client)
+|       ->04.76% (1,568B) 0x10E080: ??? (in /usr/bin/wolfssl-client)
+|         ->04.76% (1,568B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|           ->04.76% (1,568B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|             
+->04.76% (1,568B) 0x48A23BB: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->04.76% (1,568B) 0x48A3BA4: TLSX_Parse (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->04.76% (1,568B) 0x48A8730: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->04.76% (1,568B) 0x48AA643: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|       ->04.76% (1,568B) 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|         ->04.76% (1,568B) 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|           ->04.76% (1,568B) 0x489BCC3: wolfSSL_connect (in /usr/lib/libwolfssl.so.46.0.0)
+|             ->04.76% (1,568B) 0x10E10C: ??? (in /usr/bin/wolfssl-client)
+|               ->04.76% (1,568B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|                 ->04.76% (1,568B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|                   
+->03.99% (1,312B) 0x48987C7: wolfSSL_new (in /usr/lib/libwolfssl.so.46.0.0)
+| ->03.99% (1,312B) 0x10E027: ??? (in /usr/bin/wolfssl-client)
+|   ->03.99% (1,312B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|     ->03.99% (1,312B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|       
+->03.11% (1,024B) 0x493B5EC: _IO_file_doallocate (filedoalloc.c:101)
+| ->03.11% (1,024B) 0x494A3E8: _IO_doallocbuf (genops.c:347)
+|   ->03.11% (1,024B) 0x494A3E8: _IO_doallocbuf (genops.c:342)
+|     ->03.11% (1,024B) 0x49485F7: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:745)
+|     | ->03.11% (1,024B) 0x49490C6: _IO_new_file_xsputn (fileops.c:1244)
+|     |   ->03.11% (1,024B) 0x49490C6: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+|     |     ->03.11% (1,024B) 0x491BA11: __printf_buffer_flush_to_file (printf_buffer_to_file.c:59)
+|     |       ->03.11% (1,024B) 0x491BAE3: __printf_buffer_to_file_done (printf_buffer_to_file.c:120)
+|     |         ->03.11% (1,024B) 0x4925878: __vfprintf_internal (vfprintf-internal.c:1545)
+|     |           ->03.11% (1,024B) 0x49D7A7A: __printf_chk (printf_chk.c:33)
+|     |             ->03.11% (1,024B) 0x10C0E7: ??? (in /usr/bin/wolfssl-client)
+|     |               ->03.11% (1,024B) 0x10E080: ??? (in /usr/bin/wolfssl-client)
+|     |                 ->03.11% (1,024B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|     |                   ->03.11% (1,024B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|     |                     
+|     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->02.94% (968B) 0x489ECC1: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->02.94% (968B) 0x48A242B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->02.94% (968B) 0x48A3BA4: TLSX_Parse (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->02.94% (968B) 0x48A8730: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|       ->02.94% (968B) 0x48AA643: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|         ->02.94% (968B) 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|           ->02.94% (968B) 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|             ->02.94% (968B) 0x489BCC3: wolfSSL_connect (in /usr/lib/libwolfssl.so.46.0.0)
+|               ->02.94% (968B) 0x10E10C: ??? (in /usr/bin/wolfssl-client)
+|                 ->02.94% (968B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|                   ->02.94% (968B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|                     
+->01.56% (512B) 0x4889AD9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->01.56% (512B) 0x488A046: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->01.56% (512B) 0x48987DC: wolfSSL_new (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->01.56% (512B) 0x10E027: ??? (in /usr/bin/wolfssl-client)
+|       ->01.56% (512B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|         ->01.56% (512B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|           
+->01.54% (506B) 0x4881F05: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->01.54% (506B) 0x488244D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| | ->01.54% (506B) 0x48801A3: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| |   ->01.54% (506B) 0x488136E: wc_MlKemKey_Decapsulate (in /usr/lib/libwolfssl.so.46.0.0)
+| |     ->01.54% (506B) 0x489EE36: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| |       ->01.54% (506B) 0x48A242B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| |         ->01.54% (506B) 0x48A3BA4: TLSX_Parse (in /usr/lib/libwolfssl.so.46.0.0)
+| |           ->01.54% (506B) 0x48A8730: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| |             ->01.54% (506B) 0x48AA643: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| |               ->01.54% (506B) 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| |                 ->01.54% (506B) 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| |                   ->01.54% (506B) 0x489BCC3: wolfSSL_connect (in /usr/lib/libwolfssl.so.46.0.0)
+| |                     ->01.54% (506B) 0x10E10C: ??? (in /usr/bin/wolfssl-client)
+| |                       ->01.54% (506B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+| |                         ->01.54% (506B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+| |                           
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.32% (434B) 0x48890DD: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->01.32% (434B) 0x489B8E5: wolfSSL_CTX_set_cipher_list (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->01.32% (434B) 0x10E2C5: ??? (in /usr/bin/wolfssl-client)
+|     ->01.32% (434B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|       ->01.32% (434B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|         
+->01.07% (352B) 0x48A1A37: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  ->01.07% (352B) 0x489DBF0: wolfSSL_UseSecureRenegotiation (in /usr/lib/libwolfssl.so.46.0.0)
+    ->01.07% (352B) 0x488A07F: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+      ->01.07% (352B) 0x48987DC: wolfSSL_new (in /usr/lib/libwolfssl.so.46.0.0)
+        ->01.07% (352B) 0x10E027: ??? (in /usr/bin/wolfssl-client)
+          ->01.07% (352B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+            ->01.07% (352B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+              
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 21      3,335,651           32,816           29,008           376        3,432
+ 22      3,488,360           32,816           29,008           376        3,432
+ 23      3,674,547           32,816           29,008           376        3,432
+ 24      3,881,814           25,680           22,358           354        2,968
+ 25      4,037,174           17,024           14,414           314        2,296
+ 26      4,232,490           18,752           15,135           345        3,272
+ 27      4,342,807           18,776           15,364           348        3,064
+ 28      4,477,099           18,680           15,306           342        3,032
+ 29      4,662,633           23,464           20,886           338        2,240
+ 30      4,775,053           23,464           20,886           338        2,240
+ 31      4,903,533           23,464           20,886           338        2,240
+ 32      5,032,013           23,464           20,886           338        2,240
+ 33      5,160,493           23,464           20,886           338        2,240
+ 34      5,288,973           23,464           20,886           338        2,240
+ 35      5,417,453           23,464           20,886           338        2,240
+ 36      5,545,933           23,464           20,886           338        2,240
+ 37      5,674,413           23,464           20,886           338        2,240
+ 38      5,802,893           23,464           20,886           338        2,240
+ 39      5,931,373           23,464           20,886           338        2,240
+ 40      6,059,853           23,464           20,886           338        2,240
+ 41      6,188,333           23,464           20,886           338        2,240
+ 42      6,316,813           23,464           20,886           338        2,240
+ 43      6,445,293           23,464           20,886           338        2,240
+ 44      6,573,773           23,464           20,886           338        2,240
+ 45      6,702,253           23,464           20,886           338        2,240
+ 46      6,830,733           23,464           20,886           338        2,240
+ 47      6,959,213           23,464           20,886           338        2,240
+ 48      7,087,693           23,464           20,886           338        2,240
+ 49      7,216,173           23,464           20,886           338        2,240
+ 50      7,344,653           23,464           20,886           338        2,240
+ 51      7,473,133           23,464           20,886           338        2,240
+ 52      7,601,613           23,464           20,886           338        2,240
+ 53      7,730,093           23,464           20,886           338        2,240
+ 54      7,858,573           23,464           20,886           338        2,240
+ 55      7,987,053           23,464           20,886           338        2,240
+ 56      8,115,533           23,464           20,886           338        2,240
+ 57      8,244,013           23,464           20,886           338        2,240
+ 58      8,431,239           23,352           20,886           338        2,128
+ 59      8,544,975           23,352           20,886           338        2,128
+ 60      8,658,711           23,352           20,886           338        2,128
+ 61      8,772,447           23,352           20,886           338        2,128
+ 62      8,886,183           23,352           20,886           338        2,128
+ 63      8,999,919           23,352           20,886           338        2,128
+ 64      9,113,655           23,352           20,886           338        2,128
+ 65      9,227,391           23,352           20,886           338        2,128
+ 66      9,341,127           23,352           20,886           338        2,128
+ 67      9,454,863           23,352           20,886           338        2,128
+ 68      9,625,472           23,352           20,886           338        2,128
+ 69      9,739,208           23,352           20,886           338        2,128
+ 70      9,852,944           23,352           20,886           338        2,128
+ 71      9,966,680           23,352           20,886           338        2,128
+ 72     10,080,416           23,352           20,886           338        2,128
+ 73     10,194,152           23,352           20,886           338        2,128
+ 74     10,307,888           23,352           20,886           338        2,128
+ 75     10,421,624           23,352           20,886           338        2,128
+ 76     10,535,360           23,352           20,886           338        2,128
+ 77     10,649,096           23,352           20,886           338        2,128
+ 78     10,763,694           27,752           24,398           418        2,936
+ 79     10,883,942           27,848           24,398           418        3,032
+ 80     11,053,517           39,368           35,831           433        3,104
+ 81     11,168,111           39,672           35,831           433        3,408
+90.32% (35,831B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->28.82% (11,433B) 0x48842C2: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->28.82% (11,433B) 0x488609A: wc_MlDsaKey_VerifyCtx (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->28.82% (11,433B) 0x4872BA4: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->28.82% (11,433B) 0x487314F: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|       ->28.82% (11,433B) 0x4876650: wc_CheckCertSignature (in /usr/lib/libwolfssl.so.46.0.0)
+|         ->28.82% (11,433B) 0x4888533: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|           ->28.82% (11,433B) 0x488EEE5: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|             ->28.82% (11,433B) 0x48AAC19: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|               ->28.82% (11,433B) 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|                 ->28.82% (11,433B) 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|                   ->28.82% (11,433B) 0x48AB4EF: wolfSSL_connect_TLSv13 (in /usr/lib/libwolfssl.so.46.0.0)
+|                     ->28.82% (11,433B) 0x10E10C: ??? (in /usr/bin/wolfssl-client)
+|                       ->28.82% (11,433B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|                         ->28.82% (11,433B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|                           
+->19.33% (7,670B) 0x488B1E1: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->19.33% (7,670B) 0x488B5EA: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->19.33% (7,670B) 0x489495E: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->19.33% (7,670B) 0x48AB4EF: wolfSSL_connect_TLSv13 (in /usr/lib/libwolfssl.so.46.0.0)
+|     | ->19.33% (7,670B) 0x10E10C: ??? (in /usr/bin/wolfssl-client)
+|     |   ->19.33% (7,670B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|     |     ->19.33% (7,670B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|     |       
+|     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->07.99% (3,168B) 0x48A0285: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->07.99% (3,168B) 0x48A1F4B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->07.99% (3,168B) 0x48AB7C6: wolfSSL_UseKeyShare (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->07.99% (3,168B) 0x10C0F4: ??? (in /usr/bin/wolfssl-client)
+|       ->07.99% (3,168B) 0x10E080: ??? (in /usr/bin/wolfssl-client)
+|         ->07.99% (3,168B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|           ->07.99% (3,168B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|             
+->07.74% (3,070B) in 65 places, all below massif's threshold (1.00%)
+| 
+->06.53% (2,592B) 0x48761A4: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->06.53% (2,592B) 0x4876DB1: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->06.53% (2,592B) 0x4877260: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->06.53% (2,592B) 0x4897661: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|       ->06.53% (2,592B) 0x489A396: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|         ->06.53% (2,592B) 0x489AD98: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|           ->06.53% (2,592B) 0x489AFDD: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|             ->06.53% (2,592B) 0x489B105: wolfSSL_CTX_load_verify_locations_ex (in /usr/lib/libwolfssl.so.46.0.0)
+|               ->06.53% (2,592B) 0x10E8C4: ??? (in /usr/bin/wolfssl-client)
+|                 ->06.53% (2,592B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|                   ->06.53% (2,592B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|                     
+->06.53% (2,592B) 0x48874A4: wc_MlDsaKey_ImportPubRaw (in /usr/lib/libwolfssl.so.46.0.0)
+| ->06.53% (2,592B) 0x4887A2E: wc_MlDsaKey_PublicKeyDecode (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->06.53% (2,592B) 0x4872B6D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->06.53% (2,592B) 0x487314F: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|       ->06.53% (2,592B) 0x4876650: wc_CheckCertSignature (in /usr/lib/libwolfssl.so.46.0.0)
+|         ->06.53% (2,592B) 0x4888533: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|           ->06.53% (2,592B) 0x488EEE5: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|             ->06.53% (2,592B) 0x48AAC19: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|               ->06.53% (2,592B) 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|                 ->06.53% (2,592B) 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|                   ->06.53% (2,592B) 0x48AB4EF: wolfSSL_connect_TLSv13 (in /usr/lib/libwolfssl.so.46.0.0)
+|                     ->06.53% (2,592B) 0x10E10C: ??? (in /usr/bin/wolfssl-client)
+|                       ->06.53% (2,592B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|                         ->06.53% (2,592B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|                           
+->03.95% (1,568B) 0x48A0299: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->03.95% (1,568B) 0x48A1F4B: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->03.95% (1,568B) 0x48AB7C6: wolfSSL_UseKeyShare (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->03.95% (1,568B) 0x10C0F4: ??? (in /usr/bin/wolfssl-client)
+|       ->03.95% (1,568B) 0x10E080: ??? (in /usr/bin/wolfssl-client)
+|         ->03.95% (1,568B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|           ->03.95% (1,568B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|             
+->03.31% (1,312B) 0x48987C7: wolfSSL_new (in /usr/lib/libwolfssl.so.46.0.0)
+| ->03.31% (1,312B) 0x10E027: ??? (in /usr/bin/wolfssl-client)
+|   ->03.31% (1,312B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|     ->03.31% (1,312B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|       
+->02.58% (1,024B) 0x493B5EC: _IO_file_doallocate (filedoalloc.c:101)
+| ->02.58% (1,024B) 0x494A3E8: _IO_doallocbuf (genops.c:347)
+|   ->02.58% (1,024B) 0x494A3E8: _IO_doallocbuf (genops.c:342)
+|     ->02.58% (1,024B) 0x49485F7: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:745)
+|     | ->02.58% (1,024B) 0x49490C6: _IO_new_file_xsputn (fileops.c:1244)
+|     |   ->02.58% (1,024B) 0x49490C6: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+|     |     ->02.58% (1,024B) 0x491BA11: __printf_buffer_flush_to_file (printf_buffer_to_file.c:59)
+|     |       ->02.58% (1,024B) 0x491BAE3: __printf_buffer_to_file_done (printf_buffer_to_file.c:120)
+|     |         ->02.58% (1,024B) 0x4925878: __vfprintf_internal (vfprintf-internal.c:1545)
+|     |           ->02.58% (1,024B) 0x49D7A7A: __printf_chk (printf_chk.c:33)
+|     |             ->02.58% (1,024B) 0x10C0E7: ??? (in /usr/bin/wolfssl-client)
+|     |               ->02.58% (1,024B) 0x10E080: ??? (in /usr/bin/wolfssl-client)
+|     |                 ->02.58% (1,024B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|     |                   ->02.58% (1,024B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|     |                     
+|     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->01.29% (512B) 0x4889AD9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->01.29% (512B) 0x488A046: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->01.29% (512B) 0x48987DC: wolfSSL_new (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->01.29% (512B) 0x10E027: ??? (in /usr/bin/wolfssl-client)
+|       ->01.29% (512B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|         ->01.29% (512B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|           
+->01.15% (456B) 0x4872B1A: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+| ->01.15% (456B) 0x487314F: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|   ->01.15% (456B) 0x4876650: wc_CheckCertSignature (in /usr/lib/libwolfssl.so.46.0.0)
+|     ->01.15% (456B) 0x4888533: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|       ->01.15% (456B) 0x488EEE5: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|         ->01.15% (456B) 0x48AAC19: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|           ->01.15% (456B) 0x48AB35D: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|             ->01.15% (456B) 0x48951D9: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+|               ->01.15% (456B) 0x48AB4EF: wolfSSL_connect_TLSv13 (in /usr/lib/libwolfssl.so.46.0.0)
+|                 ->01.15% (456B) 0x10E10C: ??? (in /usr/bin/wolfssl-client)
+|                   ->01.15% (456B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+|                     ->01.15% (456B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+|                       
+->01.09% (434B) 0x48890DD: ??? (in /usr/lib/libwolfssl.so.46.0.0)
+  ->01.09% (434B) 0x489B8E5: wolfSSL_CTX_set_cipher_list (in /usr/lib/libwolfssl.so.46.0.0)
+    ->01.09% (434B) 0x10E2C5: ??? (in /usr/bin/wolfssl-client)
+      ->01.09% (434B) 0x10B620: ??? (in /usr/bin/wolfssl-client)
+        ->01.09% (434B) 0x48EE08D: (below main) (libc_start_call_main.h:58)
+          
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 82     11,346,407           39,456           35,831           433        3,192
+ 83     11,540,815           39,368           35,831           433        3,104
+ 84     11,665,018           39,456           35,831           433        3,192
+ 85     11,786,372           39,456           35,831           433        3,192
+ 86     11,966,362           39,456           35,831           433        3,192
+ 87     12,160,786           39,368           35,831           433        3,104
+ 88     12,284,850           39,456           35,831           433        3,192
+ 89     12,486,283           39,368           35,831           433        3,104
+ 90     12,610,400           39,456           35,831           433        3,192
+ 91     12,811,840           39,368           35,831           433        3,104
+ 92     12,935,968           39,456           35,831           433        3,192
+ 93     13,057,336           39,456           35,831           433        3,192
+ 94     13,199,289           39,456           35,831           433        3,192
+ 95     13,320,643           39,456           35,831           433        3,192
+ 96     13,462,941           39,368           35,831           433        3,104
+ 97     13,586,611           39,456           35,831           433        3,192
+ 98     13,707,965           39,456           35,831           433        3,192
+ 99     13,905,093           26,856           24,190           370        2,296
+100     14,006,733           26,856           24,190           370        2,296
+101     14,108,373           26,856           24,190           370        2,296
+102     14,210,013           26,856           24,190           370        2,296
+103     14,311,653           26,856           24,190           370        2,296
+104     14,413,293           26,856           24,190           370        2,296
+105     14,514,702           26,744           24,062           370        2,312
+106     14,619,184           26,744           24,062           370        2,312
+107     14,723,666           26,744           24,062           370        2,312
+108     14,828,148           26,744           24,062           370        2,312
+109     14,932,630           26,744           24,062           370        2,312
+110     15,036,670           23,512           20,916           356        2,240
+111     15,141,060           23,512           20,916           356        2,240
+112     15,245,450           23,512           20,916           356        2,240
+113     15,349,840           23,512           20,916           356        2,240
+114     15,454,230           23,512           20,916           356        2,240
+115     15,558,620           23,512           20,916           356        2,240
+116     15,663,010           23,512           20,916           356        2,240
+117     15,767,400           23,512           20,916           356        2,240
+118     15,871,790           23,512           20,916           356        2,240
+119     15,976,180           23,512           20,916           356        2,240
+120     16,080,570           23,512           20,916           356        2,240
+121     16,184,960           23,512           20,916           356        2,240
+122     16,289,350           23,512           20,916           356        2,240
+123     16,393,740           23,512           20,916           356        2,240
+124     16,498,130           23,512           20,916           356        2,240
+125     16,602,520           23,512           20,916           356        2,240
+126     16,706,910           23,512           20,916           356        2,240
+127     16,811,300           23,512           20,916           356        2,240
+128     16,915,690           23,512           20,916           356        2,240
+129     17,020,080           23,512           20,916           356        2,240
+130     17,124,470           23,512           20,916           356        2,240
+131     17,228,860           23,512           20,916           356        2,240
+132     17,329,608           23,400           20,916           356        2,128
+133     17,433,866           23,400           20,916           356        2,128
+134     17,538,124           23,400           20,916           356        2,128
+135     17,642,382           23,400           20,916           356        2,128
+136     17,746,640           23,400           20,916           356        2,128
+137     17,850,898           23,400           20,916           356        2,128
+138     17,955,156           23,400           20,916           356        2,128
+139     18,059,414           23,400           20,916           356        2,128
+140     18,163,672           23,400           20,916           356        2,128
+141     18,267,930           23,400           20,916           356        2,128
+142     18,372,188           23,400           20,916           356        2,128
+143     18,476,446           23,400           20,916           356        2,128
+144     18,580,709           23,400           20,916           356        2,128
+145     18,692,061           23,200           20,916           356        1,928
+146     18,796,349           23,832           21,078           378        2,376
+147     18,914,608           35,448           32,511           393        2,544
+148     19,022,628           35,448           32,511           393        2,544
+149     19,124,213           35,536           32,511           393        2,632
+150     19,228,479           35,536           32,511           393        2,632
+151     19,328,820           35,536           32,511           393        2,632
+152     19,432,718           35,536           32,511           393        2,632
+153     19,533,052           35,536           32,511           393        2,632
+154     19,633,882           35,408           32,511           393        2,504
+155     19,737,262           35,536           32,511           393        2,632
+156     19,841,542           35,536           32,511           393        2,632
+157     19,941,869           35,536           32,511           393        2,632
+158     20,052,914           35,448           32,511           393        2,544
+159     20,153,803           35,456           32,511           393        2,552
+160     20,254,130           35,456           32,511           393        2,552
+161     20,354,534           35,408           32,511           393        2,504
+162     20,454,787           35,440           32,511           393        2,536
+163     20,555,400           35,456           32,511           393        2,552
+164     20,672,837           35,448           32,511           393        2,544
+165     20,773,290           35,456           32,511           393        2,552
+166     20,873,624           35,456           32,511           393        2,552
+167     20,998,058           35,448           32,511           393        2,544
+168     21,098,806           35,456           32,511           393        2,552
+169     21,199,140           35,456           32,511           393        2,552
+170     21,323,574           35,448           32,511           393        2,544
+171     21,423,800           35,480           32,511           393        2,576
+172     21,524,058           35,536           32,511           393        2,632
+173     21,624,888           35,408           32,511           393        2,504
+174     21,730,046           20,760           18,124           340        2,296
+175     21,831,686           20,760           18,124           340        2,296
+176     21,933,326           20,760           18,124           340        2,296
+177     22,034,966           20,760           18,124           340        2,296
+178     22,135,741           20,648           17,996           340        2,312
+179     22,240,223           20,648           17,996           340        2,312
+180     22,344,705           20,648           17,996           340        2,312
+181     22,446,394           17,704           14,215           377        3,112
+182     22,553,437           16,072           13,413           347        2,312
+183     22,655,688           17,952           14,491           397        3,064
+184     22,758,613           17,888           14,434           390        3,064
+185     22,859,807           16,704           14,298           350        2,056
+186     22,960,043           14,352           12,314           270        1,768
+187     23,060,353            9,936            7,505           255        2,176
