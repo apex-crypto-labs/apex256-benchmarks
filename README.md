@@ -1,10 +1,29 @@
-# APEX-256 Validation & Benchmark Reports (v2.2.8.4)
+# APEX-256 Validation & Benchmark Reports (v2.5.0.4)
 
-This repository contains the high-level validation results, 16-wave cryptanalytic audit summaries, 38-tool external formal verification results, side-channel leakage evaluations, and hardware SWaP-C (Size, Weight, Power, and Cost) metrics for **APEX-256** (`v2.2.8.4`), a proprietary embedded stream cipher and cryptographic primitive suite developed by **Apex Research Labs, LLC** (Inventor: Diab Anthony Sheteyh).
+This repository contains the public validation summaries, formal verification outcomes, side-channel evaluations, and external memory and SWaP-C (Size, Weight, Power, and Cost) benchmarks for **APEX-256** (`v2.5.0.4`), a proprietary embedded stream cipher and modular cryptographic primitive suite developed by **Apex Research Labs, LLC** (Inventor: Diab Anthony Sheteyh).
 
 > **Note:** APEX-256 is commercial intellectual property protected by pending U.S. and International Patent Applications. The reference engine (`apex256_nano.h`), verification harnesses, and authoritative Known Answer Tests (KATs) are distributed exclusively via the [APEX Developer Portal (apex256.io)](https://apex256.io) under an executed Evaluation NDA with cryptographic supply-chain provenance attribution.
 >
-> Publicly auditable release engineering and security advisories are maintained on the [APEX-256 Public Security & Engineering Ledger](https://apex256.io/security-ledger).
+> Public release history is maintained on [https://apex256.com/revisions.html](https://apex256.com/revisions.html).
+
+---
+
+## Featured Study: CNSA 2.0 Handshake in Under 20 KiB (`wolfSSL 5.9.4` + `APEX-256 v2.5.0.4`)
+
+* **Engineering Review & Analysis:** [`cnsa20_wolfssl_memory_study/README.md`](cnsa20_wolfssl_memory_study/README.md) (also published at [https://apex256.com/blog/cnsa20-under-20kib.html](https://apex256.com/blog/cnsa20-under-20kib.html))
+* **3-Run Valgrind Massif Summary Table:** [`cnsa20_wolfssl_memory_study/RESULTS_3RUNS_SUMMARY.md`](cnsa20_wolfssl_memory_study/RESULTS_3RUNS_SUMMARY.md)
+* **Raw 3-Run Massif, `ms_print` & `time -v` Archive (`386 KiB`):** [`cnsa20_wolfssl_memory_study/wolfssl_5.9.4_cnsa20_apex256_v2504_3runs.tar.gz`](cnsa20_wolfssl_memory_study/wolfssl_5.9.4_cnsa20_apex256_v2504_3runs.tar.gz)
+
+Independent reproduction and audit of Anthony Hu's (`wolfSSL`) CNSA 2.0 (`ML-KEM-1024` + `ML-DSA-87`) low-RAM memory study on Yocto Scarthgap (`5.0.20`), paired with raw DER key loading and a zero-heap `APEX-256 v2.5.0.4` inner payload data plane:
+
+| Endpoint Stack (Valgrind Massif `--stacks=yes`, 3-Run Mean) | Peak (Heap + Stack) | Peak Heap | Steady-State Data Heap |
+|---|---:|---:|---:|
+| `OpenSSL 3.5.8` CNSA 2.0 Client (`MFL 512`) | `939.63 KiB` | `816.09 KiB` | `16+ KiB` / session |
+| `wolfSSL 5.9.4` Low-RAM Client (A. Hu flags, `MFL 512` / `no MFL`) | `39.31 / 38.74 KiB` | `35.50 / 34.99 KiB` | `~5 to 16 KiB` / session |
+| **`wolfCrypt 5.9.4` `ML-KEM-1024 + ML-DSA-87` (DER) + `APEX-256` Client** | **`19.97 KiB`** | **`13.70 KiB`** | **`0.00 KiB`** |
+| `wolfSSL 5.9.4` Low-RAM Server (A. Hu flags, `MFL 512`) | `64.74 KiB` | `62.06 KiB` | `17+ KiB` context |
+| **`wolfCrypt 5.9.4` `ML-KEM-1024 + ML-DSA-87` (DER) + `APEX-256` Server** | **`39.03 KiB`** | **`32.07 KiB`** | **`0.00 KiB`** |
+| **`APEX-256 v2.5.0.4` Steady-State Data Plane (All 9 Companion Modes)** | **`1.87 KiB` active** | **`0.00 KiB`** | **`0.00 KiB`** |
 
 ---
 
@@ -16,83 +35,58 @@ APEX-256 has passed the industry's most demanding empirical statistical randomne
 |---|---|---|
 | **PractRand (`RNG_test`)** | 32 Terabytes continuous keystream, 235 test statistics, 42 hours | **ALL PASSED (0 Anomalies)** |
 | **TestU01 (`BigCrush`)** | 106 tests, 160 test statistics, 1h 54m | **ALL PASSED (160/160)** |
-| **NIST SP 800-22 Rev. 1a** | 1 Gigabyte, 15 statistical tests | **ALL PASSED (15/15)** |
+| **NIST SP 800-22 Rev. 1a & SP 800-90B** | 1 Gigabyte, 15 statistical tests + IID / non-IID min-entropy | **ALL PASSED (`H_min = 7.99985 b/B`)** |
 | **Strict Avalanche Criterion (SAC)** | 320M trial pairs across 327,680 bit-dependency cells (6-sigma bound) | **PERFECT 50.0000% Mean** |
 | **Chi-Squared / Bit Balance / Autocorrelation** | 10 Megabytes | **ALL PASSED** |
 
 ---
 
-## 2. Stage 1 (Wave 15) & Stage 2 (Wave 16) Architectural Capabilities (v2.2.8.4)
+## 2. Modular Single-Responsibility Architecture (v2.5.0.4)
 
-The `v2.2.8.4` architecture integrates six major security, side-channel, and throughput milestones within the unchanged `40-byte` self-contained zero-allocation `Apex256Nano` context (`0 bytes` heap, `0 bytes` static `.bss`/`.tbss`/`.data`):
+The `v2.5.0.4` architecture delivers uniform 256-bit security levels and modular single-responsibility C++11+ companion interfaces while preserving the fixed `40-byte` self-contained zero-allocation core context (`0 bytes` heap, `0 bytes` static `.bss`/`.tbss`/`.data`):
 
-* **Hardware Side-Channel Hardening (Wave 15):** Bit-exact hardware side-channel hardening across the arithmetic datapath (`CPA |r| = 0.0024`, Welch `|t| = 0.74 < 4.50`, `100%` wire-compatible with standard KATs).
-* **Extended 256-Bit Nonce (`X256`, Wave 15):** `init_x256`, `init_stealth_x256`, `init_wide_x256`, and `apex_aead_encrypt_x256` / `decrypt_x256` expanding random-nonce birthday safety from `2^32` to `2^128` messages with zero added RAM.
-* **Forward-Secrecy Keyframe Ratcheting (Wave 15):** `process_payload_ratcheted` and `ratchet_stream` executing an irreversible one-way state transition every 256 bytes (`100%` chunk-split invariant) so a physical RAM capture cannot be inverted to recover prior keystream.
-* **Full-State 256-Bit Companion Mode Architecture (`F256`, Wave 16):** Supports full 256-bit state companion modes (`HASH-W64`, `CFB-256`, `VFS-256`, and `DRBG-256`) while keeping the `40-byte` context unchanged.
-* **Word-Rate Processing (`W64`) & Multi-Byte Stream Extraction (`process_payload_fast`, Wave 16):** Delivers `4x` to `8x` throughput acceleration across bulk stream encryption, hashing, MAC, KDF, VFS sector processing, and AEAD while preserving `100%` streaming chunk invariance and `1:1` byte-stream compatibility.
-* **Waves 1 - 16 & 38-Tool Formal Verification Battery:** Full-spectrum verification across 16 cryptanalysis waves, 38 external formal/SMT/SAT/MILP/SCA/RTL tools (`Bitwuzla`, `cvc5`, `CaDiCaL`, `Coq`, `F*`, `HiGHS`, `SCALib`, `Lascar`, `VerFI`, `SymbiYosys`), and a 7-engine reduced-round security-margin certification (`4.0x` to `24.0x` safety margin across the 24-round initialization schedule).
+* **3-Layer Defense-in-Depth Integration:** Designed to operate as an inner payload encapsulation layer (Layer 3) beneath standardized **NIST FIPS 203 (`ML-KEM`) / FIPS 204 (`ML-DSA`)** key establishment (Layer 1) and **NIST SP 800-232 (`Ascon`)** authenticated transport framing (Layer 2).
+* **Hardware Side-Channel Hardening:** Constant-time secret-independent execution and arithmetic side-channel hardening (`CPA |r| = 0.0024`, Welch `|t| < 1.25`, `100%` wire-compatible with authoritative KATs).
+* **Extended 256-Bit Nonce Support:** Expands random-nonce birthday collision safety from `2^32` to `2^128` messages with zero added RAM.
+* **Forward-Secrecy Stream Ratcheting:** Executes an irreversible one-way state transition every 256 bytes (`100%` chunk-split invariant) so a post-compromise memory capture cannot invert prior keystream epochs.
+* **Standalone Full-256 Companion Interfaces:** Dedicated `40-byte` to `48-byte` and stateless interfaces for hashing, MAC, KDF, AEAD, DRBG, virtual filesystem sector encryption (VFS), cipher feedback (CFB), format-preserving encryption (FPE), and side-channel equalized streaming, with automatic RAII destructor zeroization and fail-closed lifecycle enforcement.
 
 ---
 
-## 3. Waves 1 - 16 Cryptanalysis & 38-Tool Formal Verification Battery (v2.2.8.4)
+## 3. 38-Tool Formal Verification & Reduced-Round Cryptanalysis Battery
 
-Apex Research Labs utilizes 38 independent formal verification, SMT/SAT/MILP solving, interactive theorem proving, side-channel leakage, and hardware RTL synthesis engines to verify the 256-bit state architecture:
+Apex Research Labs utilizes 38 independent formal verification, SMT/SAT/MILP solving, interactive theorem proving, side-channel leakage, and hardware RTL synthesis engines to verify the 256-bit architecture:
 
 | Evaluation Vector | Scope / Methodology | Result |
 |---|---|---|
-| **Single-Step & Full-State Bijection** | 64-bit & 256-bit Z3, Bitwuzla, cvc5 SMT bitvector + Coq (`coqc`) & F* (`fstar.exe`) proofs | **PROVED UNSAT / QED (Strict Bijection)** |
+| **Single-Step & Full-State Bijection** | Z3, Bitwuzla, cvc5 SMT bitvector + Coq (`coqc`) & F* (`fstar.exe`) proofs | **PROVED UNSAT / QED (Strict Bijection)** |
 | **Same-Nonce 256-Bit Key Collision Search** | Exhaustive 256-bit symbolic SMT search for $K_1 \neq K_2$ collapsing to identical post-binding state | **PROVED UNSAT ($0$ Collisions across $2^{256}$ Keys)** |
-| **7-Engine Reduced-Round Security Margin** | Z3/Bitwuzla SMT, CaDiCaL SAT, HiGHS MILP division property, 64-thread OpenMP SAC, BoolTest, Gohr ResNet (`R = 1..24`) | **CERTIFIED `4.0x` to `24.0x` Safety Margin** |
-| **Hardware Side-Channel Hardening SCA** | Correlation Power Analysis (CPA) & TVLA across the arithmetic datapath (`SCALib`, `Lascar`) | **`CPA \|r\| = 0.0024`, Welch `\|t\| = 0.74 < 4.50` (`100%` KAT-Exact)** |
-| **CASCADA Rotational-XOR (`RX`) Trail Search** | 63 symbolic RX differential & invariant queries across rotation offsets $\gamma \in \{1..63\}$ | **63 / 63 UNSAT ($0$ RX Trails)** |
-| **CLAASP Avalanche & Gohr Neural Distinguisher** | Exact $320 \times 256$ diffusion matrix + multi-layer residual classifier ($R = 0..24$) | **$50.00\%$ SAC & $0.5000$ Neural Null at $R = 1$ (`24.0x` Margin)** |
-| **CROCS `BoolTest` Polynomial Battery** | Degree $d \in \{1, 2, 3\}$ Boolean monomial distinguishers over 128/256/512-bit blocks ($R = 0..24$) | **$\|Z_{\max}\| \le 4.28 < 4.89\sigma$ for All $R \ge 0$** |
-| **Dinur-Shamir Cube & Integral Attack** | 14-D Moebius ANF & 28th-order zero-sum integral cubes over 268M initializations + HiGHS MILP degree | **Degree 14/14 Dense & $0$ Integral Bias** |
-| **RTL Synthesis & Fault Injection (`VerFI` / `SymbiYosys`)** | Synthesizable Verilog-2005 hardware core & AXI4-Stream wrapper, YoWASP-Yosys, Bitwuzla & VerFI | **100% Cycle-Exact Parity & Sticky Tamper-Lock Verified** |
-| **Binary Symbolic Constant-Time Verification** | `x86_64`, `Xtensa LX7`, `rv32imc` ELF disassembly + Valgrind `ctgrind` + Unicorn CPU trace | **$0$ `div`/`idiv` & $0$ Secret `Jcc` (`36 / 36 PASS`)** |
+| **Reduced-Round Security Margin** | Z3/Bitwuzla SMT, CaDiCaL SAT, HiGHS MILP division property, OpenMP SAC, BoolTest, Gohr ResNet (`R = 1..24`) | **CERTIFIED `4.0x` to `24.0x` Safety Margin** |
+| **Hardware Side-Channel Hardening (SCA)** | Correlation Power Analysis (CPA) & TVLA across the arithmetic datapath (`SCALib`, `Lascar`, `PROLEAD`) | **`CPA \|r\| = 0.0024`, Welch `\|t\| < 1.25` (`100%` KAT-Exact)** |
+| **Rotational-XOR (`RX`) Trail Search** | Symbolic RX differential & invariant queries across all rotation offsets | **ALL UNSAT ($0$ RX Trails)** |
+| **Polynomial & Monomial Distinguishers** | Degree $d \in \{1, 2, 3\}$ Boolean monomial distinguishers over 128/256/512-bit blocks | **$\|Z_{\max}\| \le 4.28 < 4.89\sigma$ (No Distinguisher)** |
+| **Cube & Integral Cryptanalysis** | Moebius ANF & high-order zero-sum integral cubes + MILP degree bounds | **Full Algebraic Degree & $0$ Integral Bias** |
+| **RTL Synthesis & Fault Injection (`VerFI` / `SymbiYosys`)** | Synthesizable Verilog-2005 hardware core & AXI4-Stream wrapper (`429 Core ALMs`, `0 BRAM`, `0 DSP`) | **100% Cycle-Exact Parity & Fault-Lock Verified** |
+| **Binary Symbolic Constant-Time Verification** | Cross-ISA ELF disassembly + Valgrind `ctgrind` + symbolic execution | **$0$ `div`/`idiv` & $0$ Secret Branches** |
 
 ---
 
-## 4. Companion Primitive Cryptanalysis Suite (v2.2.8.4)
-
-All companion primitives operating across both the classic compatible modes and the `F256` / `W64` full 256-bit state modes are continuously verified against the 16-wave adversarial cryptanalysis harnesses:
-
-| Companion Primitive | Security Verification & Architectural Posture | Status |
-|---|---|---|
-| **APEX-HASH & HASH-W64** | Full-state `F256` architecture, 64-bit word-rate processing (`W64`, `4x` to `8x` speedup), 100% streaming chunk associativity, and length-framed MAC/KDF. | **PASSED** |
-| **APEX-AEAD, AEAD-X256 & AEAD-W64** | Domain-separated Encrypt-then-MAC with 64-bit and 256-bit (`X256`, $2^{128}$ birthday bound) nonces, fault-resistant tag verification, and strict Release of Unverified Plaintext (RUP) immunity. | **PASSED** |
-| **APEX-DRBG & DRBG-256** | Full 256-bit state generation with mandatory post-request backtracking resistance and NIST SP 800-90B non-IID min-entropy certification. | **PASSED** |
-| **APEX-VFS & VFS-256** | `O(1)` random-access sector encryption bound to `sector_index` and `write_epoch`, featuring 256-bit sector isolation (`VFS-256`) and fast multi-byte sector processing. | **PASSED** |
-| **APEX-CFB & CFB-256** | Lossless full-width 64-bit nonlinear ciphertext feedback across 256-bit state (`CFB-256`) with deterministic checkpoint continuation ($50.00\%$ Round-1 SAC). | **PASSED** |
-| **APEX-FPE (Format-Preserving)** | Branchless division-free format-preserving decimal digit encryption ($0$ `div`/`idiv` instructions). | **PASSED** |
-| **APEX-STEALTH & Fast Stream** | Power/EM side-channel equalization, hardware side-channel hardening (`CPA \|r\| = 0.0024`), and multi-byte keystream extraction (`process_payload_fast`). | **PASSED** |
-
----
-
-## 5. Side-Channel Posture & Bare-Metal SWaP-C Architecture
-
-APEX-256 is engineered for Size, Weight, Power, and Cost (SWaP-C) constrained embedded targets (`ARM Cortex-M4/M7`, `Espressif ESP32-S3`, `Nordic nRF52840`, `RISC-V`, and `FPGA RTL`):
+## 4. SWaP-C Footprint Summary
 
 | Metric | Specification | Verification Notes |
 |---|---|---|
-| **Instance Context Footprint** | **40 Bytes Total** | Self-contained `Apex256Nano` struct with zero dynamic allocation and zero global state. |
-| **Dynamic Heap & Static BSS** | **0 Bytes Heap / 0 Bytes `.bss`** | Zero `malloc()` / `free()`, `0 bytes` static `.bss`/`.tbss`/`.data`. Deterministic stack-only execution with unlimited concurrent instances. |
-| **Payload Expansion (Stream Mode)** | **0 Bytes (1:1 Density)** | Ciphertext length equals plaintext length; prevents sub-GHz / LoRa / BLE / MAVLink MTU packet fragmentation. |
-| **Extended Nonce & Forward Secrecy** | **64-Bit Std & 256-Bit `X256` Nonce + Ratchet** | `X256` provides $2^{128}$ random-nonce birthday safety with zero extra RAM; `process_payload_ratcheted` provides 256-byte irreversible one-way forward secrecy. |
-| **Constant-Time & Side-Channel Hardening** | **Welch's $\|t\| = 0.74 < 4.50$, `CPA \|r\| = 0.0024`** | Side-channel hardened arithmetic, `0` secret branches across `36 / 36` compiler matrix cells, and `0` Valgrind `ctgrind` leaks. |
-| **Custom Module Stripping & Provenance** | **Build Forge Preprocessor Pruning** | Unselected companion modules are physically stripped at build time; compile-time target-architecture verification prevents cross-platform mismatch. |
-
-> **Reproducible Silicon Benchmarks:** Cycle-per-byte, Flash footprint, and microamp power captures (recorded on physical `STM32F405`, `STM32H757`, and `ESP32-S3` boards using a Nordic PPK2 at 100 kSPS, Saleae Logic Pro 8, and bladeRF 2.0 Micro in our Henderson, NV lab) depend on compiler flags and target silicon. Rather than publishing uncontextualized marketing numbers, we ship the full reproducible benchmark harness and raw logs inside the **Engineering Evaluation Kit**.
+| **Core Context Footprint** | **40 Bytes Total** | Self-contained zero-allocation context with zero dynamic allocation and zero global state. |
+| **Dynamic Heap & Static BSS** | **0 Bytes Heap / 0 Bytes `.bss`** | Zero `malloc()` / `free()`, `0 bytes` static `.bss`/`.tbss`/`.data`. Deterministic stack-only execution. |
+| **Payload Expansion (Stream Mode)** | **0 Bytes (1:1 Density)** | Ciphertext length equals plaintext length; prevents constrained wireless or avionics packet fragmentation. |
+| **FPGA Hardware Footprint** | **429 Core ALMs (`0 BRAM`, `0 DSP`)** | Synthesizable RTL core verified cycle-exact against the C++ reference engine. |
 
 ---
 
-## 6. Request Evaluation Access
+## 5. Request Evaluation Access
 
-To inspect the full 3,788-line BigCrush logs, the 32 TB PractRand output, the 16-wave / 38-tool formal proof scripts, or to provision a watermarked SDK build:
-
-* **Public & Defense Overview:** [https://apex256.com](https://apex256.com)
+* **Public Overview & Architecture:** [https://apex256.com](https://apex256.com)
+* **Engineering Blog:** [https://apex256.com/blog/](https://apex256.com/blog/)
 * **Public Validation & Security Margin Matrix:** [https://apex256.com/validation.html](https://apex256.com/validation.html)
 * **Developer Portal & Build Forge:** [https://apex256.io](https://apex256.io)
-* **Public Security Ledger:** [https://apex256.io/security-ledger](https://apex256.io/security-ledger)
+* **Public Revision History:** [https://apex256.com/revisions.html](https://apex256.com/revisions.html)
 * **Evaluation Inquiries:** **info@apex256.com**
